@@ -1,0 +1,23 @@
+@import 'themes';
+
+@import '~@nebular/theme/styles/globals';
+
+@include nb-install() {
+  @include nb-theme-global();
+};
+/* You can add global styles to this file, and also import other style files */
+@charset "utf-8";
+@import "../node_modules/bulma/bulma.sass";
+@import "~bootstrap/dist/css/bootstrap.css";
+
+.navbar-menu a.active {
+    background-color: #33C3FF;
+	color: white;
+	text-decoration: none;
+  }
+  
+  .navbar-menu a:hover:not(.active) {
+    background-color: lightblue;
+	color: black;
+	text-decoration: none;
+  }
