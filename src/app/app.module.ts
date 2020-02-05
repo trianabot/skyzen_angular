@@ -17,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NbThemeModule, NbLayoutModule, NbButtonModule, NbSidebarModule, NbTabsetModule, NbInputModule, NbCardModule, NbListModule, NbMenuModule} from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,15 @@ import { FormsModule } from '@angular/forms';
     NbInputModule,
     NbCardModule,
     NbListModule,
+ HttpClientModule, NbListModule,
     NbMenuModule
+<<<<<<< .mine
+    NbListModule,
+    NbMenuModule
+=======
+    NbListModule,
+    HttpClientModule
+>>>>>>> .theirs
   ],
   providers: [
     AuthService,
