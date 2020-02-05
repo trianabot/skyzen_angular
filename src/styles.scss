@@ -12,14 +12,16 @@
 
 .navbar-menu a.active {
     background-color: #33C3FF;
-	color: white;
+  color: white;
+  border-radius: 5px;
 	text-decoration: none;
   }
   
   .navbar-menu a:hover:not(.active) {
     background-color: lightblue;
 	color: black;
-	text-decoration: none;
+  text-decoration: none;
+  border-radius: 10px;
   }
   .nb-theme-default nb-layout-header.fixed ~ .layout-container {
     padding-top: 2.75rem;

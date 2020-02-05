@@ -4,7 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ForgotComponent } from './forgot/forgot.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { NbInputModule, NbCardModule, NbButtonModule } from '@nebular/theme';
+import { NbInputModule, NbCardModule, NbButtonModule, NbSelectModule } from '@nebular/theme';
 
 
 
@@ -15,7 +15,8 @@ import { NbInputModule, NbCardModule, NbButtonModule } from '@nebular/theme';
     ReactiveFormsModule,
     NbInputModule,
     NbCardModule,
-    NbButtonModule
+    NbButtonModule,
+    NbSelectModule
   ]
 })
 export class IndexModule { }

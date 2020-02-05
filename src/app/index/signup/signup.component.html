@@ -1,1 +1,66 @@
-<p>signup works!</p>
+<form [formGroup]="signupForm">
+    <nb-card class="login_card">
+        <nb-card-body class="example-items-col">
+            <div class="row p-10">
+                <div class="col-md-3">
+                    <label class="m-t-10">First Name:</label>
+                </div>
+                <div class="col-md-9 padding0">
+                    <input type="text" nbInput Fullwidth status="basic" formControlName="firstname"
+                        placeholder="Enter First Name" class="input-width">
+                </div>
+            </div>
+            <div class="row p-10">
+                <div class="col-md-3">
+                    <label class="m-t-10">Last Name:</label>
+                </div>
+                <div class="col-md-9 padding0">
+                    <input type="text" nbInput Fullwidth status="basic" formControlName="lastname"
+                        placeholder="Enter Last Name" class="input-width">
+                </div>
+            </div>
+            <div class="row p-10">
+                <div class="col-md-3">
+                    <label class="m-t-10">Mobile Number:</label>
+                </div>
+                <div class="col-md-9 padding0">
+                    <input type="number" nbInput Fullwidth status="basic" formControlName="mobilenumber"
+                        placeholder="Enter Mobile Number" class="input-width">
+                </div>
+            </div>
+            <div class="row p-10">
+                <div class="col-md-3">
+                    <label class="m-t-10">Gender:</label>
+                </div>
+                <div class="col-md-9 padding0" formControlNmae="gender">
+                    <nb-select placeholder="Select Gender" class="input-width selectpicker" >
+                        <nb-option value="Male">Male </nb-option>
+                        <nb-option value="Female">Female </nb-option>
+                    </nb-select>
+                </div>
+            </div>
+            <div class="row p-10">
+                <div class="col-md-3">
+                    <label class="m-t-10">User Name:</label>
+                </div>
+                <div class="col-md-9 padding0">
+                    <input type="text" nbInput Fullwidth status="basic" formControlName="username"
+                        placeholder="Enter User Name" class="input-width">
+                </div>
+            </div>
+            <div class="row p-10">
+                <div class="col-md-3">
+                    <label class="m-t-10">Password:</label>
+                </div>
+                <div class="col-md-9 padding0">
+                    <input type="password" nbInput status="basic" formControlName="password"
+                        placeholder="Enter Password" class="input-width">
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <button nbButton status="success" (click)="signin(signupForm.value)" [disabled]="!signupForm.valid"
+                    class="btn">Signup</button>
+            </div>
+        </nb-card-body>
+    </nb-card>
+</form>
