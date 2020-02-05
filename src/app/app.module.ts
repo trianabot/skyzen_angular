@@ -14,7 +14,7 @@ import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth.guard';
 import { LoginGuard } from './guards/login.guard';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NbThemeModule, NbLayoutModule, NbButtonModule, NbSidebarModule, NbTabsetModule} from '@nebular/theme';
+import { NbThemeModule, NbLayoutModule, NbButtonModule, NbSidebarModule, NbTabsetModule, NbInputModule, NbCardModule, NbListModule} from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { FormsModule } from '@angular/forms';
 
@@ -38,7 +38,10 @@ import { FormsModule } from '@angular/forms';
     NbButtonModule,
     NbSidebarModule,
     NbTabsetModule,
-    FormsModule
+    FormsModule,
+    NbInputModule,
+    NbCardModule,
+    NbListModule
   ],
   providers: [
     AuthService,

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingsComponent } from './settings/settings.component';
 import { ProductsComponent } from './products/products.component';
-import { NbThemeModule, NbSidebarModule, NbLayoutModule, NbButtonModule, NbTabsetModule } from '@nebular/theme';
+import { NbThemeModule, NbSidebarModule, NbLayoutModule, NbButtonModule, NbTabsetModule, NbCardModule, NbInputModule, NbMenuModule } from '@nebular/theme';
 
 
 
@@ -15,7 +15,39 @@ import { NbThemeModule, NbSidebarModule, NbLayoutModule, NbButtonModule, NbTabse
     NbLayoutModule,
     NbSidebarModule.forRoot(), // NbSidebarModule.forRoot(), //if this is your app.module
     NbButtonModule,
-    NbTabsetModule
+    NbTabsetModule,
+    NbCardModule,
+    NbInputModule,
+    NbMenuModule
   ]
 })
-export class HomeModule { }
+export class HomeModule { 
+  items  = [
+    {
+      title: 'Profile',
+      expanded: true,
+      children: [
+        {
+          title: 'Change Password',
+          link: [], // goes into angular `routerLink`
+        },
+        {
+          title: 'Privacy Policy',
+          url: '#', // goes directly into `href` attribute
+        },
+        {
+          title: 'Logout',
+          link: [],
+        },
+      ],
+    },
+    {
+      title: 'Shopping Bag',
+      link: [],
+    },
+    {
+      title: 'Orders',
+      link: [],
+    },
+  ];
+}
