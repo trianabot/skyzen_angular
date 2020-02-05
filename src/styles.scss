@@ -6,7 +6,7 @@
   @include nb-theme-global();
 };
 /* You can add global styles to this file, and also import other style files */
-@charset "utf-8";
+// @charset "utf-8";
 @import "../node_modules/bulma/bulma.sass";
 @import "~bootstrap/dist/css/bootstrap.css";
 
@@ -21,3 +21,16 @@
 	color: black;
 	text-decoration: none;
   }
+  .nb-theme-default nb-layout-header.fixed ~ .layout-container {
+    padding-top: 2.75rem;
+    min-height: 100vh;
+}
+.nb-theme-default nb-layout-header nav {
+  color: #222b45;
+  box-shadow: 0 0.5rem 1rem 0 rgba(44, 51, 73, 0.1);
+  height: 2.75rem;
+  padding: 1.25rem;
+}
+.nb-theme-default nb-layout .layout .layout-container nb-sidebar.fixed, .nb-theme-default nb-layout .layout .layout-container nb-sidebar .main-container-fixed {
+  top: 2.75rem;
+}

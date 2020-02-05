@@ -18,36 +18,9 @@ import { NbThemeModule, NbSidebarModule, NbLayoutModule, NbButtonModule, NbTabse
     NbTabsetModule,
     NbCardModule,
     NbInputModule,
-    NbMenuModule
+    NbMenuModule.forRoot()
   ]
 })
 export class HomeModule { 
-  items  = [
-    {
-      title: 'Profile',
-      expanded: true,
-      children: [
-        {
-          title: 'Change Password',
-          link: [], // goes into angular `routerLink`
-        },
-        {
-          title: 'Privacy Policy',
-          url: '#', // goes directly into `href` attribute
-        },
-        {
-          title: 'Logout',
-          link: [],
-        },
-      ],
-    },
-    {
-      title: 'Shopping Bag',
-      link: [],
-    },
-    {
-      title: 'Orders',
-      link: [],
-    },
-  ];
+  
 }

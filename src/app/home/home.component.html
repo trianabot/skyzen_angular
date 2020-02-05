@@ -2,7 +2,7 @@
     <nb-layout-header fixed>
         <div class="navbar-menu">
             <div class="navbar-end">
-                <a class="navbar-item " routerLink="/dashboard" routerLinkActive="active">
+                <!-- <a class="navbar-item " routerLink="/dashboard" routerLinkActive="active">
                     Dashboard
                 </a>
                 <a class="navbar-item " routerLink="/products" routerLinkActive="active">
@@ -10,7 +10,7 @@
                 </a>
                 <a class="navbar-item " routerLink="/settings" routerLinkActive="active">
                     Settings
-                </a>
+                </a> -->
                 <a class="navbar-item " routerLink="/">
                     Logout
                 </a>
@@ -18,27 +18,8 @@
         </div>
     </nb-layout-header>
     <nb-sidebar>
-        <!-- <div class="row">
-            <div class="col-md-12">
-                <a>products</a>
-                <a>Stock</a>
-                <a>Orders</a>
-                <a>Marketing</a>
-                <a>Sales</a>
-                <a>Purchase</a>
-                <a>Finance</a>
-                <a>CRM</a>
-                <a>Buliding</a>
-                <a>Employees</a>
-                <a>Expences</a>
-                <a>plant</a>
-                <a>Expences</a>
-            </div>
-        </div> -->
-        <!-- <nb-card>
-            <nb-menu [items]="items">
-            </nb-menu>
-          </nb-card> -->
+        <nb-menu [items]="items" >
+        </nb-menu>
     </nb-sidebar>
     <nb-layout-column>
         <router-outlet></router-outlet>
