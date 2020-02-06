@@ -15,6 +15,11 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
   }
+  item = [
+    { title: 'Profile' },
+    { title: 'Logout' },
+  ];
+
   items = [
     {
       title: 'products',
