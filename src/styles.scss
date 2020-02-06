@@ -36,3 +36,12 @@
 .nb-theme-default nb-layout .layout .layout-container nb-sidebar.fixed, .nb-theme-default nb-layout .layout .layout-container nb-sidebar .main-container-fixed {
   top: 2.75rem;
 }
+
+.nb-theme-default nb-sidebar.compacted {
+  width: 3.5rem;
+  transition: 0.5s;
+}
+.nb-theme-default nb-sidebar.expanded {
+  width: 16rem;
+  transition: 0.5s;
+}

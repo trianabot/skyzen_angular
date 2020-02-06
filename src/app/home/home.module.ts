@@ -4,8 +4,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingsComponent } from './settings/settings.component';
 import { ProductsComponent } from './products/products.component';
 import { NbThemeModule, NbSidebarModule, NbLayoutModule, NbButtonModule, NbTabsetModule, NbCardModule, NbInputModule, NbMenuModule, NbSearchModule, NbIconModule, NbContextMenuModule } from '@nebular/theme';
-import { StockComponent } from './stock/stock.component';
-
+import { StockComponent } from './stock/stock.component';import { NbEvaIconsModule } from '@nebular/eva-icons';
 
 
 @NgModule({
@@ -22,7 +21,9 @@ import { StockComponent } from './stock/stock.component';
     NbMenuModule.forRoot(),
     NbSearchModule,
     NbIconModule,
-    NbContextMenuModule
+    NbContextMenuModule,
+    NbEvaIconsModule,
+    NbIconModule
   ]
 })
 export class HomeModule { 

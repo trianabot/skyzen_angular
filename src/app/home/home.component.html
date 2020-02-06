@@ -1,8 +1,9 @@
 <nb-layout>
     <nb-layout-header fixed>
-        <div>
-            <img src="../../assets/skyzen.png" style="width: 15%;">
+        <div style="width: 15.8%;border-right: 2px solid #f4f4f4;">
+            <img src="../../assets/skyzen.png" style="width: 40%; margin-left: 50px;">
         </div>
+        <button nbButton  size="tiny" (click)="toggle()"><nb-icon icon="menu-outline" ></nb-icon></button>
         <div class="navbar-menu">
             <div class="navbar-end">
                 <!-- <a class="navbar-item " routerLink="/dashboard" routerLinkActive="active">
@@ -14,14 +15,14 @@
                 <a class="navbar-item " routerLink="/settings" routerLinkActive="active">
                     Settings
                 </a> -->
-                <img outline nbButton [nbContextMenu]="item" src="../../assets/user.png" class="userimg">
+                <nb-icon outline nbButton [nbContextMenu]="item" icon="person-outline"></nb-icon>
                 <!-- <a class="navbar-item " routerLink="/">
                     Logout
                 </a> -->
             </div>
         </div>
     </nb-layout-header>
-    <nb-sidebar>
+    <nb-sidebar tag="left">
         <nb-menu [items]="items">
         </nb-menu>
     </nb-sidebar>
