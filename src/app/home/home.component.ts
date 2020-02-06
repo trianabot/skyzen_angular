@@ -64,7 +64,7 @@ export class HomeComponent implements OnInit {
       children: [
         {
           title: 'Overview',
-          link: [], // goes into angular `routerLink`
+          link: ['/stock'], // goes into angular `routerLink`
         },
         {
           title: 'Manufacture Stock',

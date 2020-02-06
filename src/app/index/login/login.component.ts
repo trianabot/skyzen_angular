@@ -26,19 +26,12 @@ export class LoginComponent implements OnInit {
     return this.loginForm.controls;
   }
 
-  public login() {
-    let obj = {
-      username: this.loginForm.value.username,
-      password: this.loginForm.value.password,
-    }
-    this.authservice.login(obj).subscribe(data => {
-      console.log("login success",data);
+  public onSubmit() {
+    this.authservice.login(this.loginForm.value).subscribe(data => {
       this.router.navigate(['/dashboard']);
     }, err => {
       console.log("error while login", err)
-    })
-
-
+    });
   }
 
 }

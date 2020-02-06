@@ -4,7 +4,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProductsComponent } from './products/products.component';
 import { SettingsComponent } from './settings/settings.component';
 import { AuthGuard } from '../guards/auth.guard';
-
+import { StockComponent } from './stock/stock.component';
 export const HomeRouters:Route[] = [
     {
         path:'', 
@@ -19,6 +19,9 @@ export const HomeRouters:Route[] = [
             },
             {
                 path:'settings', component:SettingsComponent
+            },
+            {
+                path:'stock', component:StockComponent
             }
         ]
     }

@@ -4,11 +4,12 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingsComponent } from './settings/settings.component';
 import { ProductsComponent } from './products/products.component';
 import { NbThemeModule, NbSidebarModule, NbLayoutModule, NbButtonModule, NbTabsetModule, NbCardModule, NbInputModule, NbMenuModule, NbSearchModule, NbIconModule, NbContextMenuModule } from '@nebular/theme';
+import { StockComponent } from './stock/stock.component';
 
 
 
 @NgModule({
-  declarations: [DashboardComponent, SettingsComponent, ProductsComponent],
+  declarations: [DashboardComponent, SettingsComponent, ProductsComponent, StockComponent],
   imports: [
     CommonModule,
     NbThemeModule.forRoot({ name: 'default' }),

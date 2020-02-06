@@ -18,6 +18,7 @@ import { NbThemeModule, NbLayoutModule, NbButtonModule, NbSidebarModule, NbTabse
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { DataService } from './services/data.service';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { HttpClientModule } from '@angular/common/http';
   providers: [
     AuthService,
     AuthGuard,
-    LoginGuard
+    LoginGuard,
+    DataService
   ],
   bootstrap: [AppComponent]
 })
