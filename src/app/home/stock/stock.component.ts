@@ -13,17 +13,10 @@ export class StockComponent implements OnInit {
   constructor(private dataservice: DataService) { }
 
   ngOnInit() {
-    this.getStocks();
+  
   }
 
-  getStocks() {
-    this.dataservice.getStockes().subscribe(data => {
-      this.stocksData = data;
-      //console.log("result coming from stocks service", this.stocksData);
-    }, err => {
-      console.log("err coming from stocks service", err)
-    })
-  }
+  
   onSelectFile(event) {
     this.selectedFiles = event.target.files;
    this.currentFileUpload = this.selectedFiles.item(0);

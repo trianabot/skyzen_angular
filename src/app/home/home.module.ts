@@ -5,10 +5,11 @@ import { SettingsComponent } from './settings/settings.component';
 import { ProductsComponent } from './products/products.component';
 import { NbThemeModule, NbSidebarModule, NbLayoutModule, NbButtonModule, NbTabsetModule, NbCardModule, NbInputModule, NbMenuModule, NbSearchModule, NbIconModule, NbContextMenuModule, NbSelectModule } from '@nebular/theme';
 import { StockComponent } from './stock/stock.component';import { NbEvaIconsModule } from '@nebular/eva-icons';
+import { OrderComponent } from './order/order.component';
 
 
 @NgModule({
-  declarations: [DashboardComponent, SettingsComponent, ProductsComponent, StockComponent],
+  declarations: [DashboardComponent, SettingsComponent, ProductsComponent, StockComponent, OrderComponent],
   imports: [
     CommonModule,
     NbThemeModule.forRoot({ name: 'default' }),

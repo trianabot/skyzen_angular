@@ -1,0 +1,109 @@
+<select class="selectpicker" (change)="selectBrand($event.currentTarget.value)">
+    <option default>Brand</option>
+    <option *ngFor="let obh of stocksData">{{obh.brand_Name}}</option>
+</select>
+
+
+
+
+<select *ngIf="isbrand" class="selectpicker" (change)="selectCat($event.currentTarget.value)">
+    <option default>Category</option>
+    <option *ngFor="let obh of brandSelectedArray">{{obh.category_Name}}</option>
+</select>
+
+<div style="width: 300px;" *ngIf="isCatgory">
+
+    <ul *ngFor="let obj of selectCatArray">
+        <li class="panel-body">{{obj.id}}</li>
+        <li class="panel-body">{{obj.prod_Name}}</li>
+        <li class="panel-body">{{obj.brand_Name}}</li>
+        <li class="panel-body">{{obj.status}}</li>
+        <li class="panel-body">{{obj.category_Name}}</li>
+        <li class="panel-body">{{obj.quantity}}</li>
+    </ul>
+</div>
+
+<!-- id: 1
+prod_Name: "SKY SEMI WM SD 68R"
+prod_Description: ""
+prod_Smu: ""
+prod_AlternateSmu: ""
+brand_Name: "Skyzen"
+status: "Active"
+node: ""
+master_Group: ""
+master_Node1: ""
+category_Name: "WASHING MACHINE"
+category_Two: ""
+category_Three: ""
+cost_One: "50"
+cost_Two: "50"
+cost_Three: "50"
+quantity: 72 -->
+
+<!-- "orderId": 3,
+"generatedBy": "3",
+"generatedTo": null,
+"date": 1575465735922,
+"totalPrice": 110,
+parts
+"products": [ -->
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>orderId</th>
+            <th>generatedTo</th>
+            <th>date</th>
+            <th>totalPrice</th>
+           
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let obj of userOrderDetails"   (click)="selectedOrder(obj)" style="cursor: pointer;">
+            <td>{{obj.orderId}}</td>
+            <td>{{obj.generatedTo}}</td>
+            <td>{{obj.date | date}}</td>
+            <td>{{obj.totalPrice}}</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<div *ngIf="showOrder" >
+<p>{{selectedOrderData.orderId}}</p>
+<p>{{selectedOrderData.generatedTo}}</p>
+<p>{{selectedOrderData.date | date}}</p>
+<p>{{selectedOrderData.totalPrice}}</p>
+   <p>prodcuts</p>
+    <ul  *ngFor="let object of selectedOrderData.products">
+        <li>
+            {{object.prod_Name}}
+        </li>
+        <li>
+            {{object.brand_Name}}
+        </li>
+        <li>
+            {{object.quantity}}
+        </li>
+        <li>
+            {{object.category_Name}}
+        </li>
+    </ul>
+
+    <p>parts</p>
+    <ul *ngFor="let object of selectedOrderData.parts">
+        <li>
+            {{object.part_Name}}
+        </li>
+        <li>
+            {{object.Brand}}
+        </li>
+        <li>
+            {{object.Category}}
+        </li>
+        <li>
+            {{object.partunit_Rate}}
+        </li>
+    </ul> 
+</div>

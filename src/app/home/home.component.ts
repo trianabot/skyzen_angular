@@ -130,7 +130,7 @@ export class HomeComponent implements OnInit {
         {
           icon: 'eye-outline',
           title: 'Overview',
-          link: [], // goes into angular `routerLink`
+          link: ['/order'], // goes into angular `routerLink`
         },
         {
           icon: 'link-2-outline',

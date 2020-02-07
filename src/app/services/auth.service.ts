@@ -22,6 +22,8 @@ export class AuthService {
   public logout(userData){
     
   }
-  Provider
+  
+  
+
   
 }

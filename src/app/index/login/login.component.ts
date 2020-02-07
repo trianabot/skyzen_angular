@@ -28,6 +28,9 @@ export class LoginComponent implements OnInit {
 
   public onSubmit() {
     this.authservice.login(this.loginForm.value).subscribe(data => {
+
+      console.log("login responce",data);
+      sessionStorage.setItem("userId",data['id']);
       this.router.navigate(['/dashboard']);
     }, err => {
       console.log("error while login", err)

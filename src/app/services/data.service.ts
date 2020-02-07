@@ -14,4 +14,8 @@ export class DataService {
   uploadFile(fileData){
     return this.http.post("http://ec2-3-231-255-189.compute-1.amazonaws.com:8156/part/stock",fileData)
   }
+  getAllOrders(){
+    const id=sessionStorage.getItem("userId")
+    return this.http.get("http://3.231.255.189:8156/user/"+id+"/order");
+  }
 }
