@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingsComponent } from './settings/settings.component';
 import { ProductsComponent } from './products/products.component';
-import { NbThemeModule, NbSidebarModule, NbLayoutModule, NbButtonModule, NbTabsetModule, NbCardModule, NbInputModule, NbMenuModule, NbSearchModule, NbIconModule, NbContextMenuModule } from '@nebular/theme';
+import { NbThemeModule, NbSidebarModule, NbLayoutModule, NbButtonModule, NbTabsetModule, NbCardModule, NbInputModule, NbMenuModule, NbSearchModule, NbIconModule, NbContextMenuModule, NbSelectModule } from '@nebular/theme';
 import { StockComponent } from './stock/stock.component';import { NbEvaIconsModule } from '@nebular/eva-icons';
 
 
@@ -23,7 +23,9 @@ import { StockComponent } from './stock/stock.component';import { NbEvaIconsModu
     NbIconModule,
     NbContextMenuModule,
     NbEvaIconsModule,
-    NbIconModule
+    NbIconModule,
+    NbSelectModule
+  
   ]
 })
 export class HomeModule { 

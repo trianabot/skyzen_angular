@@ -24,17 +24,17 @@
   border-radius: 10px;
   }
   .nb-theme-default nb-layout-header.fixed ~ .layout-container {
-    padding-top: 2.75rem;
+    padding-top: 2.75rem !important;
     min-height: 100vh;
 }
 .nb-theme-default nb-layout-header nav {
   color: #222b45;
   box-shadow: 0 0.5rem 1rem 0 rgba(44, 51, 73, 0.1);
-  height: 2.75rem;
+  height: 2.75rem !important;
   padding: 1.25rem;
 }
 .nb-theme-default nb-layout .layout .layout-container nb-sidebar.fixed, .nb-theme-default nb-layout .layout .layout-container nb-sidebar .main-container-fixed {
-  top: 2.75rem;
+  top: 2.75rem !important;
 }
 
 .nb-theme-default nb-sidebar.compacted {
