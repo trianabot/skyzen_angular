@@ -22,33 +22,7 @@
         <li class="panel-body">{{obj.quantity}}</li>
     </ul>
 </div>
-
-<!-- id: 1
-prod_Name: "SKY SEMI WM SD 68R"
-prod_Description: ""
-prod_Smu: ""
-prod_AlternateSmu: ""
-brand_Name: "Skyzen"
-status: "Active"
-node: ""
-master_Group: ""
-master_Node1: ""
-category_Name: "WASHING MACHINE"
-category_Two: ""
-category_Three: ""
-cost_One: "50"
-cost_Two: "50"
-cost_Three: "50"
-quantity: 72 -->
-
-<!-- "orderId": 3,
-"generatedBy": "3",
-"generatedTo": null,
-"date": 1575465735922,
-"totalPrice": 110,
-parts
-"products": [ -->
-
+<!-- 
 <table class="table table-bordered">
     <thead>
         <tr>
@@ -56,27 +30,56 @@ parts
             <th>generatedTo</th>
             <th>date</th>
             <th>totalPrice</th>
-           
+
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let obj of userOrderDetails"   (click)="selectedOrder(obj)" style="cursor: pointer;">
+        <tr *ngFor="let obj of userOrderDetails" (click)="selectedOrder(obj)" style="cursor: pointer;">
             <td>{{obj.orderId}}</td>
             <td>{{obj.generatedTo}}</td>
             <td>{{obj.date | date}}</td>
             <td>{{obj.totalPrice}}</td>
         </tr>
     </tbody>
-</table>
+</table> -->
 
 
-<div *ngIf="showOrder" >
-<p>{{selectedOrderData.orderId}}</p>
-<p>{{selectedOrderData.generatedTo}}</p>
-<p>{{selectedOrderData.date | date}}</p>
-<p>{{selectedOrderData.totalPrice}}</p>
-   <p>prodcuts</p>
-    <ul  *ngFor="let object of selectedOrderData.products">
+
+<nb-card>
+    <nb-card-body>
+
+        <label class="search-label" for="search">Search:</label>
+        <input nbInput [nbFilterInput]="dataSource" id="search" class="search-input">
+
+        <table [nbTreeGrid]="dataSource" [nbSort]="dataSource">
+            <!-- display column headings -->
+            <tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="orderTableColumns"></tr>
+
+            <!-- display table content -->
+            <tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: orderTableColumns"></tr>
+            <ng-container *ngFor="let column of orderTableColumns; let index = index" [nbTreeGridColumnDef]="column"
+                [showOn]="getShowOn(index)">
+                <th nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(column)" *nbTreeGridHeaderCellDef>
+                    {{column}}
+                </th>
+                <td nbTreeGridCell *nbTreeGridCellDef="let row" (click)="selectedOrder(row)">
+                    <p *ngIf="column === 'date'">{{row.data[column] | date}}</p>
+                    <p *ngIf="column !== 'date'">{{row.data[column]}}</p>
+                </td>
+            </ng-container>
+        </table>
+
+    </nb-card-body>
+</nb-card>
+
+
+<div *ngIf="showOrder">
+    <p>{{selectedOrderData.orderId}}</p>
+    <p>{{selectedOrderData.generatedTo}}</p>
+    <p>{{selectedOrderData.date | date}}</p>
+    <p>{{selectedOrderData.totalPrice}}</p>
+    <p>prodcuts</p>
+    <ul *ngFor="let object of selectedOrderData.products">
         <li>
             {{object.prod_Name}}
         </li>
@@ -105,5 +108,5 @@ parts
         <li>
             {{object.partunit_Rate}}
         </li>
-    </ul> 
+    </ul>
 </div>

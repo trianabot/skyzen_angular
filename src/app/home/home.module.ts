@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingsComponent } from './settings/settings.component';
 import { ProductsComponent } from './products/products.component';
-import { NbThemeModule, NbSidebarModule, NbLayoutModule, NbButtonModule, NbTabsetModule, NbCardModule, NbInputModule, NbMenuModule, NbSearchModule, NbIconModule, NbContextMenuModule, NbSelectModule } from '@nebular/theme';
+import { NbThemeModule, NbSidebarModule, NbLayoutModule, NbButtonModule, NbTabsetModule, NbCardModule, NbInputModule, NbMenuModule, NbSearchModule, NbIconModule, NbContextMenuModule, NbSelectModule, NbTreeGridModule, NbFilterDirective } from '@nebular/theme';
 import { StockComponent } from './stock/stock.component';import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { OrderComponent } from './order/order.component';
+
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { OrderComponent } from './order/order.component';
     NbContextMenuModule,
     NbEvaIconsModule,
     NbIconModule,
-    NbSelectModule
+    NbSelectModule,
+    NbTreeGridModule
   
   ]
 })
