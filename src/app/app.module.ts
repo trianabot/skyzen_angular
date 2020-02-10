@@ -14,11 +14,12 @@ import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth.guard';
 import { LoginGuard } from './guards/login.guard';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NbThemeModule, NbLayoutModule, NbButtonModule, NbSidebarModule, NbTabsetModule, NbInputModule, NbCardModule, NbListModule, NbMenuModule, NbSearchModule, NbContextMenuModule, NbIconModule, NbSelectModule, NbTreeGridModule } from '@nebular/theme';
+import { NbThemeModule, NbLayoutModule, NbButtonModule, NbSidebarModule, NbTabsetModule, NbInputModule, NbCardModule, NbListModule, NbMenuModule, NbSearchModule, NbContextMenuModule, NbIconModule, NbSelectModule, NbTreeGridModule, NbDialogModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './services/data.service';
+import { config } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -52,13 +53,15 @@ import { DataService } from './services/data.service';
     NbEvaIconsModule,
     NbIconModule,
     NbSelectModule,
-    NbTreeGridModule
+    NbTreeGridModule,
+    NbDialogModule.forRoot(),
   ],
   providers: [
     AuthService,
     AuthGuard,
     LoginGuard,
-    DataService
+    DataService,
+    
   ],
   bootstrap: [AppComponent]
 })

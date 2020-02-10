@@ -1,6 +1,7 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit,TemplateRef } from "@angular/core";
 import { DataService } from "src/app/services/data.service";
 import { NbSortDirection, NbSortRequest, NbTreeGridDataSource, NbTreeGridDataSourceBuilder } from "@nebular/theme";
+import { NbDialogService } from '@nebular/theme';
 interface TreeNode<T> {
   data: T;
   children?: TreeNode<T>[];
@@ -36,13 +37,17 @@ export class OrderComponent implements OnInit {
   selectedOrderData: any;
   showOrder: boolean;
 
-  constructor(private dataservice: DataService, private dataSourceBuilder: NbTreeGridDataSourceBuilder<FSEntry>) {
+  constructor(private dialogService: NbDialogService,private dataservice: DataService, private dataSourceBuilder: NbTreeGridDataSourceBuilder<FSEntry>) {
 
   }
 
   ngOnInit() {
     this.getStocks();
     this.getAllOrders();
+  }
+
+  open(dialog: TemplateRef<any>) {
+    this.dialogService.open(dialog, { context: 'this is some additional data passed to dialog' });
   }
   updateSort(sortRequest: NbSortRequest): void {
     this.sortColumn = sortRequest.column;
@@ -64,7 +69,7 @@ export class OrderComponent implements OnInit {
   getStocks() {
     this.dataservice.getStockes().subscribe(data => {
       this.stocksData = data;
-      console.log("result coming from stocks service", this.stocksData);
+     // console.log("result coming from stocks service", this.stocksData);
     }, err => {
       console.log("err coming from stocks service", err)
     })
@@ -89,7 +94,7 @@ export class OrderComponent implements OnInit {
       }
     }
     this.isCatgory = true;
-    console.log("this.selectCatArray", this.selectCatArray)
+   // console.log("this.selectCatArray", this.selectCatArray)
   }
 
   getAllOrders() {
@@ -106,9 +111,9 @@ export class OrderComponent implements OnInit {
   }
 
   selectedOrder(value) {
-    this.selectedOrderData = value;
+    this.selectedOrderData = value['data'];
     this.showOrder = true;
-    console.log(" this.selectedOrderData", this.selectedOrderData['data']);
+   // console.log(" this.selectedOrderData", this.selectedOrderData);
   }
 
 }
