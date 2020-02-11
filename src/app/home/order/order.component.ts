@@ -105,6 +105,7 @@ export class OrderComponent implements OnInit {
 
   selectedOrder(value) {
     this.selectedOrderData = value['data'];
+    console.log("this.selectedOrderData",this.selectedOrderData)
     this.showOrder = true;
   }
 

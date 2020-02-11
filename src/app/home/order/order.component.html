@@ -63,7 +63,7 @@
                 <th nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(column)" *nbTreeGridHeaderCellDef>
                     {{column}}
                 </th>
-                <td nbTreeGridCell *nbTreeGridCellDef="let row"  (cpck)="open(dialog)"  (cpck)="selectedOrder(row)" style="cursor: pointer;">
+                <td nbTreeGridCell *nbTreeGridCellDef="let row"  (click)="open(dialog)"  (click)="selectedOrder(row)" style="cursor: pointer;">
                     <p *ngIf="column === 'date'">{{row.data[column] | date}}</p>
                     <p *ngIf="column !== 'date'">{{row.data[column]}}</p>
                 </td>
@@ -122,7 +122,7 @@
 </div>
       </nb-card-body>
       <nb-card-footer>
-        <button nbButton (cpck)="ref.close()">Close Dialog</button>
+        <button nbButton (click)="ref.close()">Close Dialog</button>
       </nb-card-footer>
     </nb-card>
   </ng-template>
