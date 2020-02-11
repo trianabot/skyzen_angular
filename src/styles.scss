@@ -38,10 +38,13 @@
 }
 
 .nb-theme-default nb-sidebar.compacted {
-  width: 3.5rem;
+  width: 0 !important;
   transition: 0.5s;
 }
 .nb-theme-default nb-sidebar.expanded {
-  width: 16rem;
+  width: 16rem !important;
   transition: 0.5s;
 }
+// .nb-theme-default nb-sidebar .main-container{
+//   width: 3rem !important;
+// }

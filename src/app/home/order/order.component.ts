@@ -21,6 +21,8 @@ interface FSEntry {
   styleUrls: ["./order.component.scss"]
 })
 export class OrderComponent implements OnInit {
+  selectedItem:string=null;
+  selectedCategory : string = null;
   orderTableColumns =["orderId", "generatedTo", "date", "totalPrice"];
   dataSource: NbTreeGridDataSource<FSEntry>;
   sortColumn: string;
@@ -61,11 +63,18 @@ export class OrderComponent implements OnInit {
     const nextColumnStep = 100;
     return minWithForMultipleColumns + (nextColumnStep * index);
   }
- 
-  selectBrand(value) {
+  getStocks() {
+    this.dataservice.getStockes().subscribe(data => {
+      this.stocksData = data;
+     // console.log("result coming from stocks service", this.stocksData);
+    }, err => {
+      console.log("err coming from stocks service", err)
+    })
+  }
+  selectBrand(selectedItem) {
     this.brandSelectedArray = [];;
     for (let obj of this.stocksData) {
-      if (obj["brand_Name"] == value) {
+      if (obj["brand_Name"] == selectedItem) {
         this.brandSelectedArray.push(obj);
       }
     }

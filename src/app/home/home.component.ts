@@ -225,7 +225,7 @@ export class HomeComponent implements OnInit {
     },
   ];
   toggle() {
-    this.sidebarService.toggle(true, 'left');
+    this.sidebarService.toggle(false, 'left');
   }
 
 }
