@@ -77,45 +77,45 @@
       <nb-card-header>Template Dialog</nb-card-header>
      
       <nb-card-body>
-        <p>{{selectedOrderData.orderId}}</p>
-        <p>{{selectedOrderData.generatedTo}}</p>
-        <p>{{selectedOrderData.date | date}}</p>
-        <p>{{selectedOrderData.totalPrice}}</p>
+        <p>Order Id: {{selectedOrderData.orderId}}</p>
+        <p>Generated To: {{selectedOrderData.generatedTo}}</p>
+        <p>Date: {{selectedOrderData.date | date}}</p>
+        <p>Total Price: {{selectedOrderData.totalPrice}}</p>
         
 <div *ngIf="showOrder">
-    <p>{{selectedOrderData.orderId}}</p>
-    <p>{{selectedOrderData.generatedTo}}</p>
-    <p>{{selectedOrderData.date | date}}</p>
-    <p>{{selectedOrderData.totalPrice}}</p>
-    <p>prodcuts</p>
+    <p>orderId: {{selectedOrderData.orderId}}</p>
+    <p>Generated To: {{selectedOrderData.generatedTo}}</p>
+    <p>Date: {{selectedOrderData.date | date}}</p>
+    <p>Total Price: {{selectedOrderData.totalPrice}}</p>
+    <p>Prodcuts</p>
     <ul *ngFor="let object of selectedOrderData.products">
         <li>
-            {{object.prod_Name}}
+            Prod Name:  {{object.prod_Name}}
         </li>
         <li>
-            {{object.brand_Name}}
+            Brand Name:  {{object.brand_Name}}
         </li>
         <li>
-            {{object.quantity}}
+            Quantity:   {{object.quantity}}
         </li>
         <li>
-            {{object.category_Name}}
+            Category Name:   {{object.category_Name}}
         </li>
     </ul>
 
-    <p>parts</p>
+    <p>Parts</p>
     <ul *ngFor="let object of selectedOrderData.parts">
         <li>
-            {{object.part_Name}}
+            Part Name:  {{object.part_Name}}
         </li>
         <li>
-            {{object.Brand}}
+            Brand: {{object.Brand}}
         </li>
         <li>
-            {{object.Category}}
+            Category:  {{object.Category}}
         </li>
         <li>
-            {{object.partunit_Rate}}
+            Partunit Rate:  {{object.partunit_Rate}}
         </li>
     </ul>
 </div>

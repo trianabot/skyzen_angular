@@ -23,11 +23,8 @@ interface FSEntry {
 export class OrderComponent implements OnInit {
   orderTableColumns =["orderId", "generatedTo", "date", "totalPrice"];
   dataSource: NbTreeGridDataSource<FSEntry>;
-
   sortColumn: string;
   sortDirection: NbSortDirection = NbSortDirection.NONE;
-
-
   stocksData: any = [];
   brandSelectedArray: any = [];
   isbrand: boolean;
@@ -36,13 +33,11 @@ export class OrderComponent implements OnInit {
   userOrderDetails: any = [];
   selectedOrderData: any;
   showOrder: boolean;
-
   constructor(private dialogService: NbDialogService,private dataservice: DataService, private dataSourceBuilder: NbTreeGridDataSourceBuilder<FSEntry>) {
 
   }
 
   ngOnInit() {
-    this.getStocks();
     this.getAllOrders();
   }
 
@@ -66,14 +61,7 @@ export class OrderComponent implements OnInit {
     const nextColumnStep = 100;
     return minWithForMultipleColumns + (nextColumnStep * index);
   }
-  getStocks() {
-    this.dataservice.getStockes().subscribe(data => {
-      this.stocksData = data;
-     // console.log("result coming from stocks service", this.stocksData);
-    }, err => {
-      console.log("err coming from stocks service", err)
-    })
-  }
+ 
   selectBrand(value) {
     this.brandSelectedArray = [];;
     for (let obj of this.stocksData) {
@@ -82,19 +70,15 @@ export class OrderComponent implements OnInit {
       }
     }
     this.isbrand = true;
-
-
   }
   selectCat(selectCategory) {
     this.selectCatArray = [];
-    console.log("selectCategory", selectCategory);
     for (let obj of this.brandSelectedArray) {
       if (obj["category_Name"] == selectCategory) {
         this.selectCatArray.push(obj);
       }
     }
     this.isCatgory = true;
-   // console.log("this.selectCatArray", this.selectCatArray)
   }
 
   getAllOrders() {
@@ -113,7 +97,6 @@ export class OrderComponent implements OnInit {
   selectedOrder(value) {
     this.selectedOrderData = value['data'];
     this.showOrder = true;
-   // console.log(" this.selectedOrderData", this.selectedOrderData);
   }
 
 }

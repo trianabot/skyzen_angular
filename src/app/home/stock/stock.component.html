@@ -1,12 +1,59 @@
-
 <div class="row">
     <div class="col-md-4">
-        <nb-card >
+        <nb-card>
             <nb-card-body>
-                <input nbInput type="file" (change)="onSelectFile($event)"  />
+                <input nbInput type="file" (change)="onSelectFile($event)" />
             </nb-card-body>
         </nb-card>
     </div>
 </div>
 
 
+<nb-card>
+    <nb-card-body>
+
+        <label class="search-label" for="search">Search:</label>
+        <input nbInput [nbFilterInput]="dataSource" id="search" class="search-input">
+
+        <table [nbTreeGrid]="dataSource" [nbSort]="dataSource">
+            <!-- display column headings -->
+            <tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="orderTableColumns"></tr>
+
+            <!-- display table content -->
+            <tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: orderTableColumns"></tr>
+            <ng-container *ngFor="let column of orderTableColumns; let index = index" [nbTreeGridColumnDef]="column"
+                [showOn]="getShowOn(index)">
+                <th nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(column)" *nbTreeGridHeaderCellDef>
+                    {{column}}
+                </th>
+                <td nbTreeGridCell *nbTreeGridCellDef="let row" (click)="open(dialog)" (click)="selectedStocks(row)"
+                    style="cursor: pointer;">
+                    <p *ngIf="column === 'date'">{{row.data[column] | date}}</p>
+                    <p *ngIf="column !== 'date'">{{row.data[column]}}</p>
+                </td>
+            </ng-container>
+        </table>
+
+    </nb-card-body>
+</nb-card>
+
+<ng-template #dialog let-data let-ref="dialogRef">
+    <nb-card>
+        <nb-card-header>Template Dialog</nb-card-header>
+
+        <nb-card-body>
+
+            <p>Id :{{stockData.id}}</p>
+            <p>Prod Name:{{stockData.prod_Name}}</p>
+            <p>Prod Description:{{stockData.prod_Description}}</p>
+            <p>Prod Smu:{{stockData.prod_Smu}}</p>
+            <p>Brand Name:{{stockData.brand_Name}}</p>
+            <p>Status:{{stockData.status}}</p>
+            <p>Category Name:{{stockData.category_Name}}</p>
+            <p>Quantity:{{stockData.quantity}}</p>
+        </nb-card-body>
+        <nb-card-footer>
+            <button nbButton (click)="ref.close()">Close Dialog</button>
+        </nb-card-footer>
+    </nb-card>
+</ng-template>
