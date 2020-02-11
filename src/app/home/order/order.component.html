@@ -1,27 +1,28 @@
-<select class="selectpicker" (change)="selectBrand($event.currentTarget.value)">
-    <option default>Brand</option>
-    <option *ngFor="let obh of stocksData">{{obh.brand_Name}}</option>
-</select>
-
-
-
-
-<select *ngIf="isbrand" class="selectpicker" (change)="selectCat($event.currentTarget.value)">
-    <option default>Category</option>
-    <option *ngFor="let obh of brandSelectedArray">{{obh.category_Name}}</option>
-</select>
-
-<div style="width: 300px;" *ngIf="isCatgory">
-
-    <ul *ngFor="let obj of selectCatArray">
-        <li class="panel-body">{{obj.id}}</li>
-        <li class="panel-body">{{obj.prod_Name}}</li>
-        <li class="panel-body">{{obj.brand_Name}}</li>
-        <li class="panel-body">{{obj.status}}</li>
-        <li class="panel-body">{{obj.category_Name}}</li>
-        <li class="panel-body">{{obj.quantity}}</li>
-    </ul>
-</div>
+<nb-card>
+    <nb-card-body>
+        <nb-select placeholder ="select Brand" [(selected)]="selectedItem" >
+            <!-- <option default>Brand</option> -->
+            <nb-option *ngFor="let obh of stocksData" value= "{{obh.brand_Name}}" (selectionChange)="selectBrand(selectedItem)">{{obh.brand_Name}}</nb-option>
+        </nb-select>
+        
+        <nb-select *ngIf="isbrand" [(selected)] = "selectedCategory" >
+            <!-- <option default>Category</option> -->
+            <nb-option *ngFor="let obh of brandSelectedArray" value="{{obh.category_Name}}" (selectionChange)="selectCat(selectedCategory)">{{obh.category_Name}}</nb-option>
+        </nb-select>
+        
+        <div class="row" *ngIf="isCatgory">
+        
+            <div class="col-md-3" *ngFor="let obj of selectCatArray">
+                <p class="panel-body">{{obj.id}}</p>
+                <p class="panel-body">{{obj.prod_Name}}</p>
+                <p class="panel-body">{{obj.brand_Name}}</p>
+                <p class="panel-body">{{obj.status}}</p>
+                <p class="panel-body">{{obj.category_Name}}</p>
+                <p class="panel-body">{{obj.quantity}}</p>
+            </div>
+        </div>
+    </nb-card-body>
+</nb-card>
 <!-- 
 <table class="table table-bordered">
     <thead>
@@ -34,7 +35,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let obj of userOrderDetails" (click)="selectedOrder(obj)" style="cursor: pointer;">
+        <tr *ngFor="let obj of userOrderDetails" (cpck)="selectedOrder(obj)" style="cursor: pointer;">
             <td>{{obj.orderId}}</td>
             <td>{{obj.generatedTo}}</td>
             <td>{{obj.date | date}}</td>
@@ -62,7 +63,7 @@
                 <th nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(column)" *nbTreeGridHeaderCellDef>
                     {{column}}
                 </th>
-                <td nbTreeGridCell *nbTreeGridCellDef="let row"  (click)="open(dialog)"  (click)="selectedOrder(row)" style="cursor: pointer;">
+                <td nbTreeGridCell *nbTreeGridCellDef="let row"  (cpck)="open(dialog)"  (cpck)="selectedOrder(row)" style="cursor: pointer;">
                     <p *ngIf="column === 'date'">{{row.data[column] | date}}</p>
                     <p *ngIf="column !== 'date'">{{row.data[column]}}</p>
                 </td>
@@ -89,39 +90,39 @@
     <p>{{selectedOrderData.totalPrice}}</p>
     <p>prodcuts</p>
     <ul *ngFor="let object of selectedOrderData.products">
-        <li>
+        <p>
             {{object.prod_Name}}
-        </li>
-        <li>
+        </p>
+        <p>
             {{object.brand_Name}}
-        </li>
-        <li>
+        </p>
+        <p>
             {{object.quantity}}
-        </li>
-        <li>
+        </p>
+        <p>
             {{object.category_Name}}
-        </li>
+        </p>
     </ul>
 
     <p>parts</p>
     <ul *ngFor="let object of selectedOrderData.parts">
-        <li>
+        <p>
             {{object.part_Name}}
-        </li>
-        <li>
+        </p>
+        <p>
             {{object.Brand}}
-        </li>
-        <li>
+        </p>
+        <p>
             {{object.Category}}
-        </li>
-        <li>
+        </p>
+        <p>
             {{object.partunit_Rate}}
-        </li>
+        </p>
     </ul>
 </div>
       </nb-card-body>
       <nb-card-footer>
-        <button nbButton (click)="ref.close()">Close Dialog</button>
+        <button nbButton (cpck)="ref.close()">Close Dialog</button>
       </nb-card-footer>
     </nb-card>
   </ng-template>

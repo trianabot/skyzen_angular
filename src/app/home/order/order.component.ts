@@ -21,9 +21,10 @@ interface FSEntry {
   styleUrls: ["./order.component.scss"]
 })
 export class OrderComponent implements OnInit {
+  selectedItem:string=null;
+  selectedCategory : string = null;
   orderTableColumns =["orderId", "generatedTo", "date", "totalPrice"];
   dataSource: NbTreeGridDataSource<FSEntry>;
-
   sortColumn: string;
   sortDirection: NbSortDirection = NbSortDirection.NONE;
 
@@ -74,10 +75,10 @@ export class OrderComponent implements OnInit {
       console.log("err coming from stocks service", err)
     })
   }
-  selectBrand(value) {
+  selectBrand(selectedItem) {
     this.brandSelectedArray = [];;
     for (let obj of this.stocksData) {
-      if (obj["brand_Name"] == value) {
+      if (obj["brand_Name"] == selectedItem) {
         this.brandSelectedArray.push(obj);
       }
     }
