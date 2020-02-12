@@ -23,7 +23,7 @@ interface FSEntry {
 export class OrderComponent implements OnInit {
   selectedItem:string=null;
   selectedCategory : string = null;
-  orderTableColumns =["orderId", "generatedTo", "date", "totalPrice"];
+  orderTableColumns =["Order Id", "Generated To User", "Date","City","Total Price"];
   dataSource: NbTreeGridDataSource<FSEntry>;
   sortColumn: string;
   sortDirection: NbSortDirection = NbSortDirection.NONE;
@@ -35,6 +35,7 @@ export class OrderComponent implements OnInit {
   userOrderDetails: any = [];
   selectedOrderData: any;
   showOrder: boolean;
+  inputvalue:number;
   constructor(private dialogService: NbDialogService,private dataservice: DataService, private dataSourceBuilder: NbTreeGridDataSourceBuilder<FSEntry>) {
 
   }
@@ -93,11 +94,22 @@ export class OrderComponent implements OnInit {
   getAllOrders() {
     this.dataservice.getAllOrders().subscribe((data: any[]) => {
       this.userOrderDetails = data;
+      console.log("  this.userOrderDetails",  this.userOrderDetails);
       const orderDetails = new Array();
       for (const obj of data) {
-        orderDetails.push({ data: obj });
+        let object={
+          "Order Id":obj['orderId'],
+           "Generated To User":obj['generatedToUser']['userdeptName'],
+           "City":obj['generatedToUser']['userCity'],
+            "Date":obj['date'],
+             "Total Price":obj['totalPrice'],
+           "parts":obj['parts'],
+               "products":obj['products']
+          };
+        orderDetails.push({ data: object});
       }
       this.dataSource = this.dataSourceBuilder.create(orderDetails);
+      console.log("  this.dataSource",  this.dataSource);
     }, err => {
       console.log(" this.userOrderDetails", err)
     })
@@ -109,6 +121,8 @@ export class OrderComponent implements OnInit {
     this.showOrder = true;
   }
 
+
+ 
 }
 
 

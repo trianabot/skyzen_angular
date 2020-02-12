@@ -1,17 +1,19 @@
 <nb-card>
     <nb-card-body>
-        <nb-select placeholder ="select Brand" [(selected)]="selectedItem" >
+        <nb-select placeholder="select Brand" [(selected)]="selectedItem">
             <!-- <option default>Brand</option> -->
-            <nb-option *ngFor="let obh of stocksData" value= "{{obh.brand_Name}}" (selectionChange)="selectBrand(selectedItem)">{{obh.brand_Name}}</nb-option>
+            <nb-option *ngFor="let obh of stocksData" value="{{obh.brand_Name}}"
+                (selectionChange)="selectBrand(selectedItem)">{{obh.brand_Name}}</nb-option>
         </nb-select>
-        
-        <nb-select *ngIf="isbrand" [(selected)] = "selectedCategory" >
+
+        <nb-select *ngIf="isbrand" [(selected)]="selectedCategory">
             <!-- <option default>Category</option> -->
-            <nb-option *ngFor="let obh of brandSelectedArray" value="{{obh.category_Name}}" (selectionChange)="selectCat(selectedCategory)">{{obh.category_Name}}</nb-option>
+            <nb-option *ngFor="let obh of brandSelectedArray" value="{{obh.category_Name}}"
+                (selectionChange)="selectCat(selectedCategory)">{{obh.category_Name}}</nb-option>
         </nb-select>
-        
+
         <div class="row" *ngIf="isCatgory">
-        
+
             <div class="col-md-3" *ngFor="let obj of selectCatArray">
                 <p class="panel-body">{{obj.id}}</p>
                 <p class="panel-body">{{obj.prod_Name}}</p>
@@ -63,7 +65,8 @@
                 <th nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(column)" *nbTreeGridHeaderCellDef>
                     {{column}}
                 </th>
-                <td nbTreeGridCell *nbTreeGridCellDef="let row"  (click)="open(dialog)"  (click)="selectedOrder(row)" style="cursor: pointer;">
+                <td nbTreeGridCell *nbTreeGridCellDef="let row" (click)="open(dialog)" (click)="selectedOrder(row)"
+                    style="cursor: pointer;">
                     <p *ngIf="column === 'date'">{{row.data[column] | date}}</p>
                     <p *ngIf="column !== 'date'">{{row.data[column]}}</p>
                 </td>
@@ -75,55 +78,66 @@
 
 <ng-template #dialog let-data let-ref="dialogRef">
     <nb-card>
-      <nb-card-header>Template Dialog</nb-card-header>
-     
-      <nb-card-body>
-        <p>Order Id: {{selectedOrderData.orderId}}</p>
-        <p>Generated To: {{selectedOrderData.generatedTo}}</p>
-        <p>Date: {{selectedOrderData.date | date}}</p>
-        <p>Total Price: {{selectedOrderData.totalPrice}}</p>
-        
-<div *ngIf="showOrder">
-    <p>orderId: {{selectedOrderData.orderId}}</p>
-    <p>Generated To: {{selectedOrderData.generatedTo}}</p>
-    <p>Date: {{selectedOrderData.date | date}}</p>
-    <p>Total Price: {{selectedOrderData.totalPrice}}</p>
-    <p>Prodcuts</p>
-    <ul *ngFor="let object of selectedOrderData.products">
-        <li>
-            Prod Name:  {{object.prod_Name}}
-        </li>
-        <li>
-            Brand Name:  {{object.brand_Name}}
-        </li>
-        <li>
-            Quantity:   {{object.quantity}}
-        </li>
-        <li>
-            Category Name:   {{object.category_Name}}
-        </li>
-    </ul>
+        <nb-card-header>Order Detail</nb-card-header>
 
-    <p>Parts</p>
-    <ul *ngFor="let object of selectedOrderData.parts">
-        <li>
-            Part Name:  {{object.part_Name}}
-        </li>
-        <li>
-            Brand: {{object.Brand}}
-        </li>
-        <li>
-            Category:  {{object.Category}}
-        </li>
-        <li>
-            Partunit Rate:  {{object.partunit_Rate}}
-        </li>
-    </ul>
-</div>
-      </nb-card-body>
-      <nb-card-footer>
-        <button nbButton (click)="ref.close()">Close Dialog</button>
-      </nb-card-footer>
+        <nb-card-body>
+
+            <div class="row" *ngIf="showOrder" style="overflow-y: scroll;height: 200px;">
+                <div class="col-md-4">
+                    <b>Order Detail</b>
+                    <p>Order Id: {{selectedOrderData['Order Id']}}</p>
+                    <p>Generated To User: {{selectedOrderData['Generated To User']}}</p>
+                    <p>City: {{selectedOrderData['City']}}</p>
+                    <p>Date: {{selectedOrderData['Date'] | date}}</p>
+                    <p>Total Price: {{selectedOrderData['Total Price']}}</p>
+                </div>
+                <div class="col-md-4">
+                    <b>Prodcuts Detail</b>
+                    <ul *ngFor="let object of selectedOrderData.products">
+                        <li>
+                            Prod Name: {{object.prod_Name}}
+                        </li>
+                        <li>
+                            Brand Name: {{object.brand_Name}}
+                        </li>
+                        <li>
+                            Quantity: {{object.quantity}}
+                        </li>
+                        <li>
+                            Description: {{object.prod_Description}}
+                        </li>
+                        <li>
+                            Category Name: {{object.category_Name}}
+                        </li>
+                        <li>
+                            Status :{{object.status}}
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <b>Parts Detail</b>
+                    <ul *ngFor="let object of selectedOrderData.parts">
+                        <li>
+                            Part Name: {{object.part_Name}}
+                        </li>
+                        <li>
+                            Brand: {{object.Brand}}
+                        </li>
+                        <li>
+                            Description: {{object.prod_Description}}
+                        </li>
+                        <li>
+                            Category: {{object.Category}}
+                        </li>
+                        <li>
+                            Partunit Rate: {{object.partunit_Rate}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nb-card-body>
+        <nb-card-footer>
+            <button nbButton (click)="ref.close()">Close Dialog</button>
+        </nb-card-footer>
     </nb-card>
-  </ng-template>
-  
+</ng-template>

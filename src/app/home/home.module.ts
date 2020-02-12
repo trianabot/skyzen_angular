@@ -6,7 +6,7 @@ import { ProductsComponent } from './products/products.component';
 import { NbThemeModule, NbSidebarModule, NbLayoutModule, NbButtonModule, NbTabsetModule, NbCardModule, NbInputModule, NbMenuModule, NbSearchModule, NbIconModule, NbContextMenuModule, NbSelectModule, NbTreeGridModule, NbFilterDirective } from '@nebular/theme';
 import { StockComponent } from './stock/stock.component';import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { OrderComponent } from './order/order.component';
-
+import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -27,7 +27,9 @@ import { OrderComponent } from './order/order.component';
     NbEvaIconsModule,
     NbIconModule,
     NbSelectModule,
-    NbTreeGridModule
+    NbTreeGridModule,
+    ReactiveFormsModule,
+    FormsModule
   
   ]
 })
