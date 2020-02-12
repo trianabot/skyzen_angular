@@ -1,24 +1,27 @@
 <nb-card>
     <nb-card-body>
-        <nb-select placeholder ="select Brand" [(selected)]="selectedItem" >
+        <nb-select placeholder ="select Brand"  (selectedChange)="selectBrand($event)">
             <!-- <option default>Brand</option> -->
-            <nb-option *ngFor="let obh of stocksData" value= "{{obh.brand_Name}}" (selectionChange)="selectBrand(selectedItem)">{{obh.brand_Name}}</nb-option>
+            <nb-option *ngFor="let obh of stocksData" value= "{{obh.brand_Name}}" >{{obh.brand_Name}}</nb-option>
         </nb-select>
         
-        <nb-select *ngIf="isbrand" [(selected)] = "selectedCategory" >
-            <!-- <option default>Category</option> -->
-            <nb-option *ngFor="let obh of brandSelectedArray" value="{{obh.category_Name}}" (selectionChange)="selectCat(selectedCategory)">{{obh.category_Name}}</nb-option>
+        <nb-select *ngIf="isbrand"  (selectedChange)="selectCat($event)" style="float: right;">
+            <nb-option *ngFor="let obh of brandSelectedArray" value="{{obh.category_Name}}" >{{obh.category_Name}}</nb-option>
         </nb-select>
         
         <div class="row" *ngIf="isCatgory">
         
-            <div class="col-md-3" *ngFor="let obj of selectCatArray">
-                <p class="panel-body">{{obj.id}}</p>
-                <p class="panel-body">{{obj.prod_Name}}</p>
-                <p class="panel-body">{{obj.brand_Name}}</p>
-                <p class="panel-body">{{obj.status}}</p>
-                <p class="panel-body">{{obj.category_Name}}</p>
-                <p class="panel-body">{{obj.quantity}}</p>
+            <div class="col-md-12" >
+                <table>
+                   <tr *ngFor="let obj of selectCatArray">
+                    <td> <p class="panel-body">{{obj.id}}</p></td>
+                    <td> <p class="panel-body">{{obj.prod_Name}}</p></td>
+                    <td> <p class="panel-body">{{obj.brand_Name}}</p></td>
+                    <td> <p class="panel-body">{{obj.status}}</p></td>
+                    <td> <p class="panel-body">{{obj.category_Name}}</p></td>
+                    <td> <p class="panel-body">{{obj.quantity}}</p></td>
+                   </tr>
+                </table>
             </div>
         </div>
     </nb-card-body>

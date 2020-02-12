@@ -10,6 +10,7 @@ import { from } from 'rxjs';
 export class HomeComponent implements OnInit {
 
   status: boolean;
+  SelectedTheme : string = null;
 
   constructor(private sidebarService: NbSidebarService, private themeService: NbThemeService) {
     this.themeService.onThemeChange()
@@ -19,12 +20,12 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-   
+
   }
-  theem(theamName){
-    // console.log(theamName);
-    // alert(theamName.target.value);
-    let theamName_:string = theamName.target.value;
+  theem(SelectedTheme){
+    // console.log(SelectedTheme);
+    // alert(SelectedTheme);
+    let theamName_:string = SelectedTheme;
     this.themeService.changeTheme(theamName_);
   }
   item = [

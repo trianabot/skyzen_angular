@@ -3,14 +3,13 @@
         <div style="width: 15.8%;border-right: 2px solid #f4f4f4;">
             <img src="../../assets/skyzen.png" style="width: 40%; margin-left: 50px;">
         </div>
-        <button nbButton size="tiny" status="basic" (click)="toggle()">
+        <button nbButton size="tiny"  (click)="toggle()">
             <nb-icon icon="menu-outline"></nb-icon>
         </button>
         <div class="navbar-menu">
             <div class="navbar-end">
-                <button  _ngcontent-wfk-c25="" status="basic" class="action-selector" style="border:0px; padding: 10px;
-                border-radius: 5px;">
-                    <nb-icon _ngcontent-wfk-c25="" icon="color-palette-outline" _nghost-wfk-c8="">
+                <!-- <button  _ngcontent-wfk-c25=""  class="action-selector" > -->
+                    <!-- <nb-icon _ngcontent-wfk-c25="" icon="color-palette-outline" _nghost-wfk-c8="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24"
                             class="eva eva-color-palette-outline" fill="currentColor">
                             <g data-name="Layer 2">
@@ -26,14 +25,14 @@
                                 </g>
                             </g>
                         </svg>
-                    </nb-icon>
-                    <select _ngcontent-wfk-c25=""  class="action-item ng-pristine ng-valid ng-touched" #selected (change)="theem($event)" style="border: 0px;background: #f4f4f4;">
-                        <option _ngcontent-wfk-c25="" value="default" class="ng-star-inserted" style="">Default</option>
-                        <option _ngcontent-wfk-c25="" value="dark" class="ng-star-inserted" style="">Dark</option>
-                        <option _ngcontent-wfk-c25="" value="cosmic" class="ng-star-inserted" style="">Cosmic</option>
-                        <option _ngcontent-wfk-c25="" value="corporate" class="ng-star-inserted" style="">Corporate</option>
-                    </select>
-                </button>
+                    </nb-icon> -->
+                    <nb-select placeholder="Select Theme" _ngcontent-wfk-c25=""  class="action-item ng-pristine ng-valid ng-touched" style="margin-top: 6px;" (selectedChange)="theem($event)">
+                        <nb-option _ngcontent-wfk-c25=""  class="ng-star-inserted" style="" value="default">Default</nb-option>
+                        <nb-option _ngcontent-wfk-c25=""  class="ng-star-inserted" style="" value="dark">Dark</nb-option>
+                        <nb-option _ngcontent-wfk-c25=""  class="ng-star-inserted" style="" value="cosmic">Cosmic</nb-option>
+                        <nb-option _ngcontent-wfk-c25="" class="ng-star-inserted" style=""  value="corporate">Corporate</nb-option>
+                    </nb-select>
+                <!-- </button> -->
                 <!-- <a class="navbar-item " routerLink="/dashboard" routerLinkActive="active">
                     Dashboard
                 </a>
