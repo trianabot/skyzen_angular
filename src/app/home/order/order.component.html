@@ -1,16 +1,16 @@
-<!-- <nb-card>
-    <nb-card-body>
+<!-- <nb-card> -->
+    <!-- <nb-card-body>
 
-        <nb-select placeholder="select Brand" [(selected)]="selectedItem">
+        <nb-select placeholder="select Brand" (selectedChange)="selectBrand(selectedItem)">
 
             <nb-option *ngFor="let obh of stocksData" value="{{obh.brand_Name}}"
-                (selectionChange)="selectBrand(selectedItem)">{{obh.brand_Name}}</nb-option>
+                >{{obh.brand_Name}}</nb-option>
         </nb-select>
 
-        <nb-select *ngIf="isbrand" [(selected)]="selectedCategory">
+        <nb-select *ngIf="isbrand" (selectedChange)="selectCat(selectedCategory)">
      
             <nb-option *ngFor="let obh of brandSelectedArray" value="{{obh.category_Name}}"
-                (selectionChange)="selectCat(selectedCategory)">{{obh.category_Name}}</nb-option>
+                >{{obh.category_Name}}</nb-option>
 
         <nb-select placeholder ="select Brand"  (selectedChange)="selectBrand($event)">
          
@@ -116,24 +116,52 @@
     </nb-card-body>
 </nb-card>
 
-<ng-template #dialog let-data let-ref="dialogRef">
-    <nb-card>
-        <nb-card-header>Order Detail</nb-card-header>
+<ng-template #dialog let-data let-ref="dialogRef" >
+    <nb-card style="width: 63%; margin: 0px auto;">
+        <nb-card-header>
+            <b class="float-left">{{selectedOrderData['Order Id']}}</b>
+            <nb-icon icon="close-outline"  (click)="ref.close()" class="float-right"></nb-icon>
+        </nb-card-header>
 
         <nb-card-body>
 
-            <div class="row" *ngIf="showOrder" style="overflow-y: scroll;height: 200px;">
-                <div class="col-md-4">
-                    <b>Order Detail</b>
-                    <p>Order Id: {{selectedOrderData['Order Id']}}</p>
-                    <p>Generated To User: {{selectedOrderData['Generated To User']}}</p>
-                    <p>City: {{selectedOrderData['City']}}</p>
-                    <p>Date: {{selectedOrderData['Date'] | date}}</p>
-                    <p>Total Price: {{selectedOrderData['Total Price']}}</p>
+            <div class="row" *ngIf="showOrder" >
+                <div class="col-md-6">
+                    <b>{{selectedOrderData['Generated To User']}}</b>
+                   <div style="text-transform: lowercase;">{{selectedOrderData['City']}}</div>
+                   <div>{{selectedOrderData['email']}}</div>
                 </div>
-                <div class="col-md-4">
-                    <b>Prodcuts Detail</b>
-                    <ul *ngFor="let object of selectedOrderData.products">
+                <div class="col-md-6 text-right"  >
+                    <p><b>{{selectedOrderData['Date'] | date}}</b></p>
+                    <p>Status: <b>Active</b> </p>
+                </div>
+                <div class="col-md-12">
+                    <p><b>Prodcuts Detail</b></p>
+                    <table class="table table-bordered table-hover ">
+                       <thead>
+                        <tr>
+                            <th> Prod Name</th>
+                            <th> Brand Name</th>
+                            <th> Quantity </th>
+                            <th>  Description </th>
+                            <th>Category Name</th>
+                            <th> Status </th>
+                            <th> Totel Price</th>
+                        </tr>
+                       </thead>
+                        <tbody >
+                            <tr *ngFor="let object of selectedOrderData.products">
+                                <td>{{object.prod_Name}}</td>
+                                <td>{{object.brand_Name}}</td>
+                                <td>{{object.quantity}}</td>
+                                <td>{{object.prod_Description}}</td>
+                                <td>{{object.category_Name}}</td>
+                                <td>{{object.status}}</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- <ul *ngFor="let object of selectedOrderData.products">
                         <li>
                             Prod Name: {{object.prod_Name}}
                         </li>
@@ -152,11 +180,34 @@
                         <li>
                             Status :{{object.status}}
                         </li>
-                    </ul>
+                    </ul> -->
                 </div>
-                <div class="col-md-4">
-                    <b>Parts Detail</b>
-                    <ul *ngFor="let object of selectedOrderData.parts">
+                <div class="col-md-12">
+                    <p><b>Parts Detail</b></p>
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th> Part Name</th>
+                                <th> Brand </th>
+                                <th>Description</th>
+                                <th> Category</th>
+                                <th> Partunit Rate</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let object of selectedOrderData.parts">
+                                <td>{{object.part_Name}}</td>
+                                <td>{{object.Brand}}</td>
+                                <td>{{object.prod_Description}}</td>
+                                <td>{{object.Category}}</td>
+                                <td>{{object.partunit_Rate}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="text-right">
+                        Total Price: <button nbButton basic> {{selectedOrderData['Total Price']}}</button>
+                    </div>
+                    <!-- <ul *ngFor="let object of selectedOrderData.parts">
                         <li>
                             Part Name: {{object.part_Name}}
                         </li>
@@ -172,12 +223,25 @@
                         <li>
                             Partunit Rate: {{object.partunit_Rate}}
                         </li>
-                    </ul>
+                    </ul> -->
                 </div>
             </div>
         </nb-card-body>
-        <nb-card-footer>
+        <!-- <nb-card-footer>
             <button nbButton (click)="ref.close()">Close Dialog</button>
-        </nb-card-footer>
+        </nb-card-footer> -->
     </nb-card>
 </ng-template>
+
+
+<!-- <nb-card>
+    <nb-card-header>
+      Smart Table
+    </nb-card-header>
+  
+    <nb-card-body>
+      <ng2-smart-table [settings]="settings" >
+      </ng2-smart-table>
+    </nb-card-body>
+  </nb-card> -->
+  

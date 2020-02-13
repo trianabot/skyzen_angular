@@ -9,6 +9,7 @@
 // @charset "utf-8";
 @import "../node_modules/bulma/bulma.sass";
 @import "~bootstrap/dist/css/bootstrap.css";
+// @import "../node_modules/bootstrap/dist/css/"
 
 .navbar-menu a.active {
     background-color: #33C3FF;
@@ -45,6 +46,35 @@
   width: 16rem !important;
   transition: 0.5s;
 }
-// .nb-theme-default nb-sidebar .main-container{
-//   width: 3rem !important;
-// }
+ .layout-container nb-sidebar.left {
+  order: 0;
+  transition: 0.5s;
+}
+.nb-theme-default p, .nb-theme-default .paragraph {
+  font-size: .6375rem;
+}
+.nb-theme-default [nbButton].appearance-filled.status-primary {
+  color: #fff;
+  font-size: 1.67rem;
+}
+.table-bordered th, .table-bordered td {
+  border: 1px solid #dee2e6;
+  text-transform: capitalize;
+  font-size: 0.7357rem;
+}
+.table th {
+  text-align: left;
+  background: #f4f4f4;
+}
+.nb-theme-dark .nb-tree-grid-header-cell, .nb-theme-dark .nb-tree-grid-cell, .nb-theme-dark .nb-tree-grid-footer-cell {
+  height: 2rem;
+  padding: 0.875rem 1.25rem;
+  color: inherit;
+  border: 1px solid #192038;
+}
+.nb-theme-cosmic  .nb-tree-grid-header-cell, .nb-theme-cosmic  .nb-tree-grid-cell, .nb-theme-cosmic  .nb-tree-grid-footer-cell {
+  height: 2rem;
+  padding: 0.875rem 1.25rem;
+  color: inherit;
+  border: 1px solid #192038;
+}

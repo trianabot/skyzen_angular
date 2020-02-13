@@ -19,6 +19,8 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './services/data.service';
+import { Ng2SmartTableModule } from 'ng2-smart-table';
+import { NgTableComponent, NgTableFilteringDirective, NgTablePagingDirective, NgTableSortingDirective } from 'ng2-table/ng2-table';
 import { config } from 'rxjs';
 
 @NgModule({
@@ -55,6 +57,11 @@ import { config } from 'rxjs';
     NbSelectModule,
     NbTreeGridModule,
     NbDialogModule.forRoot(),
+    Ng2SmartTableModule,
+    // NgTableComponent,
+    // NgTableFilteringDirective,
+    // NgTablePagingDirective,
+    // NgTableSortingDirective
   ],
   providers: [
     AuthService,
