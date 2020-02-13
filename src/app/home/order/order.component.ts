@@ -23,7 +23,9 @@ interface FSEntry {
 export class OrderComponent implements OnInit {
   selectedItem:string=null;
   selectedCategory : string = null;
-  orderTableColumns =["Order Id", "Generated To User", "Date","City","Total Price"];
+ 
+  orderTableColumnsuser=["Order Id", "Party Name", "Date","City","Total Price"];
+  orderTableColumns =["Order Id", "Party Name", "Date","City","Total Price","Devision",  "Executive", "Status"];
   dataSource: NbTreeGridDataSource<FSEntry>;
   sortColumn: string;
   sortDirection: NbSortDirection = NbSortDirection.NONE;
@@ -36,11 +38,13 @@ export class OrderComponent implements OnInit {
   selectedOrderData: any;
   showOrder: boolean;
   inputvalue:number;
+  userRole:any;
   constructor(private dialogService: NbDialogService,private dataservice: DataService, private dataSourceBuilder: NbTreeGridDataSourceBuilder<FSEntry>) {
 
   }
 
   ngOnInit() {
+    this.userRole= sessionStorage.getItem("userRole");
     this.getAllOrders();
   }
 
@@ -99,7 +103,7 @@ export class OrderComponent implements OnInit {
       for (const obj of data) {
         let object={
           "Order Id":obj['orderId'],
-           "Generated To User":obj['generatedToUser']['userdeptName'],
+           "Party Name":obj['generatedToUser']['userdeptName'],
            "City":obj['generatedToUser']['userCity'],
             "Date":obj['date'],
              "Total Price":obj['totalPrice'],
@@ -109,7 +113,7 @@ export class OrderComponent implements OnInit {
         orderDetails.push({ data: object});
       }
       this.dataSource = this.dataSourceBuilder.create(orderDetails);
-      console.log("  this.dataSource",  this.dataSource);
+      console.log("  this.dataSource this.userRole",  this.dataSource,this.userRole);
     }, err => {
       console.log(" this.userOrderDetails", err)
     })

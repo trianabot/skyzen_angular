@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
 
       console.log("login responce",data);
       sessionStorage.setItem("userId",data['id']);
+      sessionStorage.setItem("userRole",data['userRole']);
       this.router.navigate(['/dashboard']);
     }, err => {
       console.log("error while login", err)

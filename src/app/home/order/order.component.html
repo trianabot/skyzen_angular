@@ -73,16 +73,32 @@
 
 
 
+
 <nb-card>
     <nb-card-body>
 
         <label class="search-label" for="search">Search:</label>
         <input nbInput [nbFilterInput]="dataSource" id="search" class="search-input">
-
-        <table [nbTreeGrid]="dataSource" [nbSort]="dataSource">
+        <table [nbTreeGrid]="dataSource" [nbSort]="dataSource"
+            *ngIf="(userRole=='crm' || 'distributor' || 'retailer' || 'plant' || 'sales' || 'asp' || 'serviceengineer') && (userRole!='admin')">
+            <tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="orderTableColumnsuser"></tr>
+            <!-- display table content -->
+            <tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: orderTableColumnsuser"></tr>
+            <ng-container *ngFor="let column of orderTableColumnsuser; let index = index" [nbTreeGridColumnDef]="column"
+                [showOn]="getShowOn(index)">
+                <th nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(column)" *nbTreeGridHeaderCellDef>
+                    {{column}}
+                </th>
+                <td nbTreeGridCell *nbTreeGridCellDef="let row" (click)="open(dialog)" (click)="selectedOrder(row)"
+                    style="cursor: pointer;">
+                    <p *ngIf="column === 'date'">{{row.data[column] | date}}</p>
+                    <p *ngIf="column !== 'date'">{{row.data[column]}}</p>
+                </td>
+            </ng-container>
+        </table>
+        <table [nbTreeGrid]="dataSource" [nbSort]="dataSource" *ngIf="userRole== 'admin'">
             <!-- display column headings -->
             <tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="orderTableColumns"></tr>
-
             <!-- display table content -->
             <tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: orderTableColumns"></tr>
             <ng-container *ngFor="let column of orderTableColumns; let index = index" [nbTreeGridColumnDef]="column"
@@ -97,7 +113,6 @@
                 </td>
             </ng-container>
         </table>
-
     </nb-card-body>
 </nb-card>
 
