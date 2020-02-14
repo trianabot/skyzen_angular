@@ -105,6 +105,7 @@ export class OrderComponent implements OnInit {
           "Order Id":obj['orderId'],
            "Party Name":obj['generatedToUser']['userdeptName'],
            "City":obj['generatedToUser']['userCity'],
+           "Email":obj['generatedToUser']['email'],
             "Date":obj['date'],
              "Total Price":obj['totalPrice'],
            "parts":obj['parts'],

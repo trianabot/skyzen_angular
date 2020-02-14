@@ -35,9 +35,10 @@ export class HomeComponent implements OnInit {
 
   items = [
     {
-      icon: "smartphone-outline",
+      
       title: 'products',
       expanded: false,
+      icon: "smartphone-outline",
       children: [
         {
           icon: 'eye-outline',

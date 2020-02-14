@@ -127,9 +127,9 @@
 
             <div class="row" *ngIf="showOrder" >
                 <div class="col-md-6">
-                    <b>{{selectedOrderData['Generated To User']}}</b>
+                    <b>{{selectedOrderData['Party Name']}}</b>
                    <div style="text-transform: lowercase;">{{selectedOrderData['City']}}</div>
-                   <div>{{selectedOrderData['email']}}</div>
+                   <div>{{selectedOrderData['Email']}}</div>
                 </div>
                 <div class="col-md-6 text-right"  >
                     <p><b>{{selectedOrderData['Date'] | date}}</b></p>
@@ -143,6 +143,7 @@
                             <th> Prod Name</th>
                             <th> Brand Name</th>
                             <th> Quantity </th>
+                            <th> Price </th>
                             <th>  Description </th>
                             <th>Category Name</th>
                             <th> Status </th>
@@ -154,10 +155,11 @@
                                 <td>{{object.prod_Name}}</td>
                                 <td>{{object.brand_Name}}</td>
                                 <td>{{object.quantity}}</td>
+                                <td>{{object.cost_One}}</td>
                                 <td>{{object.prod_Description}}</td>
                                 <td>{{object.category_Name}}</td>
                                 <td>{{object.status}}</td>
-                                <td></td>
+                                <td>{{object.cost_One*object.quantity}}</td>
                             </tr>
                         </tbody>
                     </table>
