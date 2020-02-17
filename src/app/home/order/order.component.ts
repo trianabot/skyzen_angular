@@ -130,6 +130,10 @@ export class OrderComponent implements OnInit {
     this.selectedOrderData = value;
     this.showOrder = true;
   }
+
+  onSelectCaT(value){
+    console.log("onSelectCaT",value);
+  }
 }
 
 

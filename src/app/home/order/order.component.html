@@ -59,23 +59,21 @@
     <nb-card-body>
         <input nbInput [nbFilterInput]="dataSource" id="search" class="search-input float-right" placeholder="Search"
             icon="search-outline">
-        <nb-select class="float-right" placeholder="Filters" [(selected)]="selectedItem" style="padding: 0px 10px;">
-            <nb-option value="">Town</nb-option>
-            <nb-option value="0">Distributor</nb-option>
-            <nb-option value="1">Delar</nb-option>
-            <nb-option value="2">Location</nb-option>
-            <nb-option value="3">Date</nb-option>
+        <nb-select class="float-right" placeholder="Filters" (selectedChange)="onSelectCaT($event)"  style="padding: 0px 10px;">
+            <nb-option value="City">City</nb-option>
+            <nb-option value="Party Name">Party Name</nb-option>
+            <nb-option value="Date">Date</nb-option>
         </nb-select>
-        <nb-select class="float-right" placeholder="Dispatch" [(selected)]="selectedItem">
-            <nb-option value="">Loading</nb-option>
-            <nb-option value="0">Transport</nb-option>
-            <nb-option value="1">Direct Loading</nb-option>
+        <nb-select class="float-right" placeholder="Dispatch"  (selectedChange)="onSelectCaT($event)" >
+            <nb-option value="Loading">Loading</nb-option>
+            <nb-option value="Transport">Transport</nb-option>
+            <nb-option value="Direct Loading">Direct Loading</nb-option>
         </nb-select>
-        <nb-select class="float-right" placeholder="Exclusive" [(selected)]="selectedItem" style="padding: 0px 10px;">
-            <nb-option value="">Loading</nb-option>
-            <nb-option value="0">Transport</nb-option>
-            <nb-option value="1">Direct Loading</nb-option>
-        </nb-select>
+        <!-- <nb-select class="float-right" placeholder="Exclusive" [(selected)]="selectedItem" (change)="onSelectCaT($event)" style="padding: 0px 10px;">
+            <nb-option value="Loading">Loading</nb-option>
+            <nb-option value="Transport">Transport</nb-option>
+            <nb-option value="Direct Loading">Direct Loading</nb-option>
+        </nb-select> -->
 
 
         <table class="table table-bordered"
