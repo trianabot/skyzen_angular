@@ -22,6 +22,7 @@ import { DataService } from './services/data.service';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { NgTableComponent, NgTableFilteringDirective, NgTablePagingDirective, NgTableSortingDirective } from 'ng2-table/ng2-table';
 import { config } from 'rxjs';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { config } from 'rxjs';
     NbTreeGridModule,
     NbDialogModule.forRoot(),
     Ng2SmartTableModule,
+    NgxPaginationModule
     // NgTableComponent,
     // NgTableFilteringDirective,
     // NgTablePagingDirective,

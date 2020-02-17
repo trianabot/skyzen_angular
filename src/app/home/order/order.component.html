@@ -1,5 +1,5 @@
 <!-- <nb-card> -->
-    <!-- <nb-card-body>
+<!-- <nb-card-body>
 
         <nb-select placeholder="select Brand" (selectedChange)="selectBrand(selectedItem)">
 
@@ -50,56 +50,177 @@
         </div>
     </nb-card-body>
 </nb-card> -->
-<!-- 
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>orderId</th>
-            <th>generatedTo</th>
-            <th>date</th>
-            <th>totalPrice</th>
 
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let obj of userOrderDetails" (cpck)="selectedOrder(obj)" style="cursor: pointer;">
-            <td>{{obj.orderId}}</td>
-            <td>{{obj.generatedTo}}</td>
-            <td>{{obj.date | date}}</td>
-            <td>{{obj.totalPrice}}</td>
-        </tr>
-    </tbody>
-</table> -->
 
 
 
 
 <nb-card>
     <nb-card-body>
+        <input nbInput [nbFilterInput]="dataSource" id="search" class="search-input float-right" placeholder="Search"
+            icon="search-outline">
+        <nb-select class="float-right" placeholder="Filters" [(selected)]="selectedItem" style="padding: 0px 10px;">
+            <nb-option value="">Town</nb-option>
+            <nb-option value="0">Distributor</nb-option>
+            <nb-option value="1">Delar</nb-option>
+            <nb-option value="2">Location</nb-option>
+            <nb-option value="3">Date</nb-option>
+        </nb-select>
+        <nb-select class="float-right" placeholder="Dispatch" [(selected)]="selectedItem">
+            <nb-option value="">Loading</nb-option>
+            <nb-option value="0">Transport</nb-option>
+            <nb-option value="1">Direct Loading</nb-option>
+        </nb-select>
+        <nb-select class="float-right" placeholder="Exclusive" [(selected)]="selectedItem" style="padding: 0px 10px;">
+            <nb-option value="">Loading</nb-option>
+            <nb-option value="0">Transport</nb-option>
+            <nb-option value="1">Direct Loading</nb-option>
+        </nb-select>
 
-        <label class="search-label" for="search">Search:</label>
-        <input nbInput [nbFilterInput]="dataSource" id="search" class="search-input">
-        <table [nbTreeGrid]="dataSource" [nbSort]="dataSource"
+
+        <table class="table table-bordered"
+            *ngIf="(userRole=='crm' || 'distributor' || 'retailer' || 'plant' || 'sales' || 'asp' || 'serviceengineer') && (userRole!='admin')">
+            <thead>
+                <tr>
+                    <th class="fs">
+                        <nb-icon icon="shopping-cart-outline"></nb-icon>Order Id
+                    </th>
+                    <th class="fs">
+                        <nb-icon icon="person-done-outline"></nb-icon>Party Name
+                    </th>
+                    <th class="fs">
+                        <nb-icon icon="pin-outline"></nb-icon>City
+                    </th>
+                    <th class="fs">
+                        <nb-icon icon="calendar-outline"></nb-icon>Date
+                    </th>
+                    <th class="fs">
+                        <nb-icon icon="pricetags-outline"></nb-icon>TotalPrice
+                    </th>
+                    <th class="fs">
+                        <nb-icon icon="percent-outline"></nb-icon>Devision
+                    </th>
+                    <th class="fs">
+                        <nb-icon icon="award-outline"></nb-icon>Executive
+                    </th>
+                    <th class="fs">
+                        <nb-icon icon="activity-outline"></nb-icon>Status
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let obj of userOrderDetails | paginate: { itemsPerPage: 10, currentPage: p }"
+                    (cpck)="selectedOrder(obj)" style="cursor: pointer;">
+                    <td (click)="open(dialog)" (click)="selectedOrder(obj)">{{obj.orderId}}</td>
+                    <td (click)="open(dialog)" (click)="selectedOrder(obj)">{{obj.generatedToUser.userdeptName}}</td>
+                    <td (click)="open(dialog)" (click)="selectedOrder(obj)">{{obj.generatedToUser.userCity}}</td>
+                    <td (click)="open(dialog)" (click)="selectedOrder(obj)">{{obj.date | date}}</td>
+                    <td (click)="open(dialog)" (click)="selectedOrder(obj)">{{obj.totalPrice}}</td>
+                    <td (click)="open(dialog)" (click)="selectedOrder(obj)">Xxxxxxx</td>
+                    <td (click)="open(dialog)" (click)="selectedOrder(obj)">Xxxxxxx</td>
+                    <td>
+                        <p class="display" style="margin: 0px;">
+                            <nb-icon class="nb_custom" icon="radio-button-off-outline"></nb-icon>Pending
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-bordered" *ngIf="userRole== 'admin'">
+            <thead>
+                <tr>
+                    <th class="fs">
+                        <nb-icon icon="shopping-cart-outline"></nb-icon>Order Id
+                    </th>
+                    <th class="fs">
+                        <nb-icon icon="person-done-outline"></nb-icon>Party Name
+                    </th>
+                    <th class="fs">
+                        <nb-icon icon="pin-outline"></nb-icon>City
+                    </th>
+                    <th class="fs">
+                        <nb-icon icon="calendar-outline"></nb-icon>Date
+                    </th>
+                    <th class="fs">
+                        <nb-icon icon="pricetags-outline"></nb-icon>TotalPrice
+                    </th>
+                    <th class="fs">
+                        <nb-icon icon="percent-outline"></nb-icon>Devision
+                    </th>
+                    <th class="fs">
+                        <nb-icon icon="award-outline"></nb-icon>Executive
+                    </th>
+                    <th class="fs">
+                        <nb-icon icon="activity-outline"></nb-icon>Status
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let obj of userOrderDetails;" (click)="open(dialog)" (click)="selectedOrder(obj)">
+                    <td (click)="open(dialog)" (click)="selectedOrder(obj)">{{obj.orderId}}</td>
+                    <td (click)="open(dialog)" (click)="selectedOrder(obj)">{{obj.generatedToUser.userdeptName}}</td>
+                    <td (click)="open(dialog)" (click)="selectedOrder(obj)">{{obj.generatedToUser.userCity}}</td>
+                    <td (click)="open(dialog)" (click)="selectedOrder(obj)">{{obj.date | date}}</td>
+                    <td (click)="open(dialog)" (click)="selectedOrder(obj)">{{obj.totalPrice}}</td>
+                    <td (click)="open(dialog)" (click)="selectedOrder(obj)">Xxxxxxx</td>
+                    <td (click)="open(dialog)" (click)="selectedOrder(obj)">Xxxxxxx</td>
+                    <td>
+                        <p class="display" style="margin: 0px;">
+                            <nb-icon class="nb_custom" icon="radio-button-off-outline"></nb-icon>Pending
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <pagination-controls style="text-align: center;" (pageChange)="p = $event"></pagination-controls>
+        <!-- <label class="search-label" for="search">Search:</label> -->
+        <!-- <table [nbTreeGrid]="dataSource" [nbSort]="dataSource"
             *ngIf="(userRole=='crm' || 'distributor' || 'retailer' || 'plant' || 'sales' || 'asp' || 'serviceengineer') && (userRole!='admin')">
             <tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="orderTableColumnsuser"></tr>
-            <!-- display table content -->
+            <!-- display table content 
             <tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: orderTableColumnsuser"></tr>
             <ng-container *ngFor="let column of orderTableColumnsuser; let index = index" [nbTreeGridColumnDef]="column"
                 [showOn]="getShowOn(index)">
-                <th nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(column)" *nbTreeGridHeaderCellDef>
+                <th nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(column)" *nbTreeGridHeaderCellDef icon ="shopping-cart-outline">
                     {{column}}
                 </th>
                 <td nbTreeGridCell *nbTreeGridCellDef="let row" (click)="open(dialog)" (click)="selectedOrder(row)"
                     style="cursor: pointer;">
-                    <p *ngIf="column === 'date'">{{row.data[column] | date}}</p>
+                    <p *ngIf="column === 'date'">{{row.data[column] | date:'short'}}</p>
                     <p *ngIf="column !== 'date'">{{row.data[column]}}</p>
                 </td>
             </ng-container>
-        </table>
-        <table [nbTreeGrid]="dataSource" [nbSort]="dataSource" *ngIf="userRole== 'admin'">
-            <!-- display column headings -->
+        </table> -->
+        <!-- <table>
+            <thead>
+                <tr>
+                    <th>Order Id</th>
+            <th>Party Name</th>
+            <th>Date</th>
+            <th>City</th>
+            <th>Total Price</th>
+            <th>Devision</th>
+            <th>Executive</th>
+            <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let column of orderTableColumnsuser;">
+                    <td>{{column.}}</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table> -->
+        <!-- <table [nbTreeGrid]="dataSource" [nbSort]="dataSource" *ngIf="userRole== 'admin'">
+            <!-- display column headings
             <tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="orderTableColumns"></tr>
-            <!-- display table content -->
+            <!-- display table content 
             <tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: orderTableColumns"></tr>
             <ng-container *ngFor="let column of orderTableColumns; let index = index" [nbTreeGridColumnDef]="column"
                 [showOn]="getShowOn(index)">
@@ -108,49 +229,49 @@
                 </th>
                 <td nbTreeGridCell *nbTreeGridCellDef="let row" (click)="open(dialog)" (click)="selectedOrder(row)"
                     style="cursor: pointer;">
-                    <p *ngIf="column === 'date'">{{row.data[column] | date}}</p>
+                    <p *ngIf="column === 'date'">{{row.data[column]}}</p>
                     <p *ngIf="column !== 'date'">{{row.data[column]}}</p>
                 </td>
             </ng-container>
-        </table>
+        </table> -->
     </nb-card-body>
 </nb-card>
 
-<ng-template #dialog let-data let-ref="dialogRef" >
-    <nb-card style="width: 63%; margin: 0px auto;">
+<ng-template #dialog let-data let-ref="dialogRef">
+    <nb-card style="width: 60%; margin: 0px auto;">
         <nb-card-header>
-            <b class="float-left">{{selectedOrderData['Order Id']}}</b>
-            <nb-icon icon="close-outline"  (click)="ref.close()" class="float-right"></nb-icon>
+            <b class="float-left">{{selectedOrderData['orderId']}}</b>
+            <nb-icon icon="close-outline" (click)="ref.close()" class="float-right"></nb-icon>
         </nb-card-header>
 
         <nb-card-body>
 
-            <div class="row" *ngIf="showOrder" >
+            <div class="row" *ngIf="showOrder">
                 <div class="col-md-6">
-                    <b>{{selectedOrderData['Party Name']}}</b>
-                   <div style="text-transform: lowercase;">{{selectedOrderData['City']}}</div>
-                   <div>{{selectedOrderData['Email']}}</div>
+                    <b>{{selectedOrderData['generatedToUser']['userdeptName']}}</b>
+                    <div style="text-transform: lowercase;">{{selectedOrderData['generatedToUser']['userCity']}}</div>
+                    <div>{{selectedOrderData['generatedToUser']['email']}}</div>
                 </div>
-                <div class="col-md-6 text-right"  >
-                    <p><b>{{selectedOrderData['Date'] | date}}</b></p>
+                <div class="col-md-6 text-right">
+                    <p><b>{{selectedOrderData['date'] | date}}</b></p>
                     <p>Status: <b>Active</b> </p>
                 </div>
                 <div class="col-md-12">
                     <p><b>Prodcuts Detail</b></p>
                     <table class="table table-bordered table-hover ">
-                       <thead>
-                        <tr>
-                            <th> Prod Name</th>
-                            <th> Brand Name</th>
-                            <th> Quantity </th>
-                            <th> Price </th>
-                            <th>  Description </th>
-                            <th>Category Name</th>
-                            <th> Status </th>
-                            <th> Totel Price</th>
-                        </tr>
-                       </thead>
-                        <tbody >
+                        <thead>
+                            <tr>
+                                <th> Prod Name</th>
+                                <th> Brand Name</th>
+                                <th> Quantity </th>
+                                <th> Price </th>
+                                <th> Description </th>
+                                <th>Category Name</th>
+                                <th> Status </th>
+                                <th> Totel Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
                             <tr *ngFor="let object of selectedOrderData.products">
                                 <td>{{object.prod_Name}}</td>
                                 <td>{{object.brand_Name}}</td>
@@ -207,7 +328,7 @@
                         </tbody>
                     </table>
                     <div class="text-right">
-                        Total Price: <button nbButton basic> {{selectedOrderData['Total Price']}}</button>
+                        Total Price: <button nbButton basic> {{selectedOrderData['totalPrice']}}</button>
                     </div>
                     <!-- <ul *ngFor="let object of selectedOrderData.parts">
                         <li>
@@ -246,4 +367,3 @@
       </ng2-smart-table>
     </nb-card-body>
   </nb-card> -->
-  

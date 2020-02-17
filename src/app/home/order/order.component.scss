@@ -40,9 +40,24 @@ button[nbTreeGridRowToggle] {
       width: 23%;
     }
   }
-// p {
-//     margin-top: 10px;
-// }
-// table{
-//     margin-top: 0.5rem;
-// }
+  .display{
+    display: inline-flex;
+    background: #e1f0ed !important;
+    color: #35ceb2;
+    padding: 0px 5px;
+    border-radius: 10px;
+  }
+  .nb_custom{
+    width: 30px !important;
+    padding: 4px !important;
+  }
+.content table thead td, .content table thead th {
+  border-width: 0 0 2px;
+  color: #363636;
+  font-size: 14px !important;
+  text-transform: uppercase !important;
+}
+.fs{
+  font-size: 14px;
+  text-transform: uppercase;
+}

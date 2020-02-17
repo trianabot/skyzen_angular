@@ -1,4 +1,4 @@
-import { Component, OnInit,TemplateRef } from "@angular/core";
+import { Component, OnInit, TemplateRef } from "@angular/core";
 import { DataService } from "src/app/services/data.service";
 import { NbSortDirection, NbSortRequest, NbTreeGridDataSource, NbTreeGridDataSourceBuilder } from "@nebular/theme";
 import { NbDialogService } from '@nebular/theme';
@@ -21,11 +21,12 @@ interface FSEntry {
   styleUrls: ["./order.component.scss"]
 })
 export class OrderComponent implements OnInit {
-  selectedItem:string=null;
-  selectedCategory : string = null;
- 
-  orderTableColumnsuser=["Order Id", "Party Name", "Date","City","Total Price"];
-  orderTableColumns =["Order Id", "Party Name", "Date","City","Total Price","Devision",  "Executive", "Status"];
+  selectedItem: string = null;
+  selectedCategory: string = null;
+  selectedCity:any;
+
+  orderTableColumnsuser = ["Order Id", "Party Name", "Date", "City", "Total Price", "Devision", "Executive", "Status"];
+  orderTableColumns = ["Order Id", "Party Name", "Date", "City", "Total Price", "Devision", "Executive", "Status"];
   dataSource: NbTreeGridDataSource<FSEntry>;
   sortColumn: string;
   sortDirection: NbSortDirection = NbSortDirection.NONE;
@@ -37,14 +38,15 @@ export class OrderComponent implements OnInit {
   userOrderDetails: any = [];
   selectedOrderData: any;
   showOrder: boolean;
-  inputvalue:number;
-  userRole:any;
-  constructor(private dialogService: NbDialogService,private dataservice: DataService, private dataSourceBuilder: NbTreeGridDataSourceBuilder<FSEntry>) {
+  inputvalue: number;
+  userRole: any;
+  p: number = 1;
+  constructor(private dialogService: NbDialogService, private dataservice: DataService, private dataSourceBuilder: NbTreeGridDataSourceBuilder<FSEntry>) {
 
   }
 
   ngOnInit() {
-    this.userRole= sessionStorage.getItem("userRole");
+    this.userRole = sessionStorage.getItem("userRole");
     this.getAllOrders();
   }
 
@@ -71,7 +73,7 @@ export class OrderComponent implements OnInit {
   getStocks() {
     this.dataservice.getStockes().subscribe(data => {
       this.stocksData = data;
-     // console.log("result coming from stocks service", this.stocksData);
+      // console.log("result coming from stocks service", this.stocksData);
     }, err => {
       console.log("err coming from stocks service", err)
     })
@@ -98,36 +100,36 @@ export class OrderComponent implements OnInit {
   getAllOrders() {
     this.dataservice.getAllOrders().subscribe((data: any[]) => {
       this.userOrderDetails = data;
-      console.log("  this.userOrderDetails",  this.userOrderDetails);
+      console.log("  this.userOrderDetails", this.userOrderDetails);
       const orderDetails = new Array();
       for (const obj of data) {
-        let object={
-          "Order Id":obj['orderId'],
-           "Party Name":obj['generatedToUser']['userdeptName'],
-           "City":obj['generatedToUser']['userCity'],
-           "Email":obj['generatedToUser']['email'],
-            "Date":obj['date'],
-             "Total Price":obj['totalPrice'],
-           "parts":obj['parts'],
-               "products":obj['products']
-          };
-        orderDetails.push({ data: object});
+
+        let object = {
+          "Order Id": obj['orderId'],
+          "Party Name": obj['generatedToUser']['userdeptName'],
+          "City": obj['generatedToUser']['userCity'],
+          "Email": obj['generatedToUser']['email'],
+          "Date": obj['date'],
+          "Total Price": obj['totalPrice'],
+          "parts": obj['parts'],
+          "products": obj['products'],
+          "Devision": "Devision",
+          "Executive":"Executive",
+          "Status":"Pending"
+        };
+        orderDetails.push({ data: object });
       }
       this.dataSource = this.dataSourceBuilder.create(orderDetails);
-      console.log("  this.dataSource this.userRole",  this.dataSource,this.userRole);
+      console.log("  this.dataSource this.userRole", this.dataSource, this.userRole);
     }, err => {
       console.log(" this.userOrderDetails", err)
     })
   }
 
   selectedOrder(value) {
-    this.selectedOrderData = value['data'];
-    console.log("this.selectedOrderData",this.selectedOrderData)
+    this.selectedOrderData = value;
     this.showOrder = true;
   }
-
-
- 
 }
 
 

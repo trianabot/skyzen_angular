@@ -1,11 +1,11 @@
 <nb-layout>
     <nb-layout-header fixed>
-        <div style="width: 15.8%;">
-            <img src="../../assets/skyzen.png" style="width: 40%; margin-left: 50px;">
-        </div>
         <button nbButton size="tiny"  (click)="toggle()">
             <nb-icon icon="menu-outline"></nb-icon>
         </button>
+        <div>
+            <img src="../../assets/skyzen.png" style="width: 14%; margin-left: 10px;">
+        </div>
         <div class="navbar-menu">
             <div class="navbar-end">
                 <!-- <button  _ngcontent-wfk-c25=""  class="action-selector" > -->
@@ -26,7 +26,7 @@
                             </g>
                         </svg>
                     </nb-icon> -->
-                    <nb-select placeholder="Select Theme" _ngcontent-wfk-c25=""  class="action-item ng-pristine ng-valid ng-touched" style="margin-top: 6px;" (selectedChange)="theem($event)">
+                    <nb-select placeholder="Select Theme" _ngcontent-wfk-c25=""  class="action-item ng-pristine ng-valid ng-touched " style="margin-top: 12px;" (selectedChange)="theem($event)">
                         <nb-option _ngcontent-wfk-c25=""  class="ng-star-inserted" style="" value="default">Default</nb-option>
                         <nb-option _ngcontent-wfk-c25=""  class="ng-star-inserted" style="" value="dark">Dark</nb-option>
                         <nb-option _ngcontent-wfk-c25=""  class="ng-star-inserted" style="" value="cosmic">Cosmic</nb-option>

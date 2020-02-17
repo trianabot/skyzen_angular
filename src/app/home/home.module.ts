@@ -8,6 +8,7 @@ import { StockComponent } from './stock/stock.component';import { NbEvaIconsModu
 import { OrderComponent } from './order/order.component';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
+import {NgxPaginationModule} from 'ngx-pagination';
 // import { NgTableComponent, NgTableFilteringDirective, NgTablePagingDirective, NgTableSortingDirective } from 'ng2-table';
 
 
@@ -33,6 +34,7 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
     ReactiveFormsModule,
     FormsModule,
     Ng2SmartTableModule,
+    NgxPaginationModule
     // NgTableComponent,
     // NgTableFilteringDirective,
     // NgTablePagingDirective,
