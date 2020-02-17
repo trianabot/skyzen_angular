@@ -59,21 +59,21 @@
     <nb-card-body>
         <input nbInput [nbFilterInput]="dataSource" id="search" class="search-input float-right" placeholder="Search"
             icon="search-outline">
-        <nb-select class="float-right" placeholder="Filters" (selectedChange)="onSelectCaT($event)"  style="padding: 0px 10px;">
+        <nb-select class="float-right" placeholder="Filters"   style="padding: 0px 10px;">
             <nb-option value="City">City</nb-option>
             <nb-option value="Party Name">Party Name</nb-option>
             <nb-option value="Date">Date</nb-option>
         </nb-select>
-        <nb-select class="float-right" placeholder="Dispatch"  (selectedChange)="onSelectCaT($event)" >
-            <nb-option value="Loading">Loading</nb-option>
-            <nb-option value="Transport">Transport</nb-option>
-            <nb-option value="Direct Loading">Direct Loading</nb-option>
+        <nb-select class="float-right" placeholder="Dispatch" [(selected)]="selected"  (selectedChange)="onSelectCaT($event)" >
+            <nb-option *ngFor="let obj of userData" value="{{obj.generatedToUser.userCity}}">{{obj.generatedToUser.userCity}}</nb-option>
         </nb-select>
         <!-- <nb-select class="float-right" placeholder="Exclusive" [(selected)]="selectedItem" (change)="onSelectCaT($event)" style="padding: 0px 10px;">
             <nb-option value="Loading">Loading</nb-option>
             <nb-option value="Transport">Transport</nb-option>
             <nb-option value="Direct Loading">Direct Loading</nb-option>
         </nb-select> -->
+        <h1 class="h5">Selected range: {{ range.start | date }} - {{ range.end | date }}</h1>
+        <nb-calendar-range [range]="range" (rangeChange)="handleRangeChange($event)"></nb-calendar-range>
 
 
         <table class="table table-bordered"

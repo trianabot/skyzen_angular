@@ -14,7 +14,7 @@ import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth.guard';
 import { LoginGuard } from './guards/login.guard';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NbThemeModule, NbLayoutModule, NbButtonModule, NbSidebarModule, NbTabsetModule, NbInputModule, NbCardModule, NbListModule, NbMenuModule, NbSearchModule, NbContextMenuModule, NbIconModule, NbSelectModule, NbTreeGridModule, NbDialogModule } from '@nebular/theme';
+import { NbThemeModule, NbLayoutModule, NbButtonModule, NbSidebarModule, NbTabsetModule, NbInputModule, NbCardModule, NbListModule, NbMenuModule, NbSearchModule, NbContextMenuModule, NbIconModule, NbSelectModule, NbTreeGridModule, NbDialogModule, NbCalendarRangeModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -59,7 +59,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     NbTreeGridModule,
     NbDialogModule.forRoot(),
     Ng2SmartTableModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    NbCalendarRangeModule 
     // NgTableComponent,
     // NgTableFilteringDirective,
     // NgTablePagingDirective,
