@@ -3,7 +3,7 @@ import { DataService } from "src/app/services/data.service";
 import { NbSortDirection, NbSortRequest, NbTreeGridDataSource, NbTreeGridDataSourceBuilder } from "@nebular/theme";
 import { NbDialogService } from '@nebular/theme';
 import { NbCalendarRange, NbDateService } from '@nebular/theme';
-import * as moment from 'moment';
+import * as moment from "moment";
 interface TreeNode<T> {
   data: T;
   children?: TreeNode<T>[];
@@ -45,11 +45,15 @@ export class OrderComponent implements OnInit {
   inputvalue: number;
   userRole: any;
   p: number = 1;
+  min: Date;
+  max: Date;
   constructor(protected dateService: NbDateService<Date>,private dialogService: NbDialogService, private dataservice: DataService, private dataSourceBuilder: NbTreeGridDataSourceBuilder<FSEntry>) {
-    this.range = {
-      start: this.dateService.addDay(this.monthStart, 3),
-      end: this.dateService.addDay(this.monthEnd, -3),
-    };
+   
+    this.min = this.dateService.addDay(this.dateService.today(), -5);
+    this.max = this.dateService.addDay(this.dateService.today(), 5); // this.range = {
+    //   start: this.dateService.addDay(this.monthStart, 4),
+    //   end: this.dateService.addDay(this.monthEnd, -4),
+    // };
    // console.log("this.range",this.range)
   }
 
@@ -178,7 +182,17 @@ export class OrderComponent implements OnInit {
      }
    }
    this.userOrderDetails=selecteCityData;
-   console.log("this.userOrderDetails",this.userOrderDetails)
+  //  console.log("this.userOrderDetails",this.userOrderDetails)
+  }
+  onSelectParty(value){
+    var selectPartyName = [];
+    for(let obj of this.userData){
+      if(obj.generatedToUser.userdeptName == value){
+        selectPartyName.push(obj)
+      }
+    }
+    this.userOrderDetails = selectPartyName;
+    // console.log("this.userOrderDetails",this.userOrderDetails);
   }
 }
 

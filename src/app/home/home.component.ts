@@ -30,7 +30,9 @@ export class HomeComponent implements OnInit {
   }
   item = [
     { title: 'Profile' },
-    { title: 'Logout' },
+    { title: 'Logout',
+    link:'/login'
+  },
   ];
 
   items = [

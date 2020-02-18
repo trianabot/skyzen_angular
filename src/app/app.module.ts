@@ -14,7 +14,7 @@ import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth.guard';
 import { LoginGuard } from './guards/login.guard';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NbThemeModule, NbLayoutModule, NbButtonModule, NbSidebarModule, NbTabsetModule, NbInputModule, NbCardModule, NbListModule, NbMenuModule, NbSearchModule, NbContextMenuModule, NbIconModule, NbSelectModule, NbTreeGridModule, NbDialogModule, NbCalendarRangeModule } from '@nebular/theme';
+import { NbThemeModule, NbLayoutModule, NbButtonModule, NbSidebarModule, NbTabsetModule, NbInputModule, NbCardModule, NbListModule, NbMenuModule, NbSearchModule, NbContextMenuModule, NbIconModule, NbSelectModule, NbTreeGridModule, NbDialogModule, NbCalendarRangeModule, NbDatepickerModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -23,6 +23,7 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { NgTableComponent, NgTableFilteringDirective, NgTablePagingDirective, NgTableSortingDirective } from 'ng2-table/ng2-table';
 import { config } from 'rxjs';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,9 @@ import {NgxPaginationModule} from 'ngx-pagination';
     NbDialogModule.forRoot(),
     Ng2SmartTableModule,
     NgxPaginationModule,
-    NbCalendarRangeModule 
+    NbCalendarRangeModule ,
+    NbDatepickerModule.forRoot(),
+    Ng2SearchPipeModule
     // NgTableComponent,
     // NgTableFilteringDirective,
     // NgTablePagingDirective,
