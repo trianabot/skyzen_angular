@@ -1,0 +1,223 @@
+<div class="container-fluid nopadrightleft">
+    <div class="row m-0">
+       <nb-card class="nb-top">
+           <nb-card-body>
+               <div class="row m-0 f-f">
+                   <div class="col-md-12 pd-10">
+                       <div class="row fs-25 pd-5">
+                            <span>Employees / New</span>
+                       </div>
+                       <div class="row pd-5 bb">
+                           <span class="txt-1 cursor" (click)="save()">Save</span>
+                           <span class="txt-1 cursor m-l-2" (click)="open(dialog)">Discard</span>
+                       </div>
+                       <div class="row pd-5">
+                           <span class="txt-2 cursor pd-3">Launch Plan</span>
+                       </div>
+                   </div>
+               </div>
+           </nb-card-body>
+       </nb-card>
+    </div>
+    
+    <div class="row m-0 w-90">
+        <nb-card class="nb-top mt-10 m-l-13">
+            <nb-card-body class="pd-00">
+                <div class="row m-0 b-bg f-f">
+                     <div class="col-md-2 pd-0">
+
+                     </div>
+                     <div class="col-md-2 pd-0">
+
+                     </div>
+                     <div class="col-md-2 pd-0">
+
+                     </div>
+                     <div class="col-md-2 pd-0">
+
+                     </div>
+                     <div class="col-md-2 pd-0 w-12 ta-c">
+                          <!-- <div class="row m-0"> <div class="col-md-12 pd-0">
+                                <i class="fa fa-signal icon" aria-hidden="true"></i>
+                                    <span>0.00 Units</span><br>
+                                    <span>Sold</span>
+                               </div>
+                          </div> -->
+                     </div>
+                     <div class="col-md-2 pd-0 w-12 ta-c b-c">
+                        <div class="row m-0">
+                            <div class="col-md-12 pd-0">
+                                <i class="fa fa-signal icon" aria-hidden="true"></i>
+                                    <span>Hours</span><br>
+                                    <span>Last Month</span>
+                               </div>
+                       </div>
+                     </div>
+                </div>
+
+                <form [formGroup]="useredit">
+                <div class="row m-0 f-f">
+                    <div class="col-md-8 mt-15 fs-25">
+                        <span><input type="text" formControlName="employeename" class="form-control ht" /></span>
+                    </div>
+                </div>
+                <div class="row m-0 f-f">
+                    <div class="col-md-8 mt-15 fs-25">
+                        <span><input type="text" formControlName="jobposition" class="form-control ht" /></span>
+                    </div>
+                </div>
+
+                <!-- <div class="row m-0 f-f">
+                      <div class="col-md-9 pd-0">
+                           <div class="row m-0 ta-c">
+                                <div class="col-md-3 pd-5 b-bg-b cursor" (click)='active(1)'> General Information </div>
+                                <div class="col-md-3 pd-5 b-bg-b cursor" (click)='active(2)'> Variants </div>
+                                <div class="col-md-3 pd-5 b-bg-b cursor" (click)='active(3)'> Sales </div>
+                                <div class="col-md-3 pd-5 b-bg-b cursor" (click)='active(4)'> Purchase </div>
+                           </div>
+                      </div>
+                      <div class="col-md-3 pd-0 b-bg-b">
+
+                      </div>
+                </div> -->
+                
+                <div class="row m-0 mt-15 f-f">
+                    
+                    <div class="col-md-2 pd-0 br-r">
+                        <div class="row m-0 pd-10"><span class="spn-1">Work Mobile</span></div>
+                        <div class="row m-0 pd-10"><span class="spn-1">Work Phone</span></div>
+                        <div class="row m-0 pd-10"><span class="spn-1">Work Email</span></div>
+                        <div class="row m-0 pd-10"><span class="spn-1">Work Location</span></div>
+                        <div class="row m-0 pd-10"><span class="spn-1">Company</span></div>
+                    </div>
+                    <div class="col-md-4 pd-0">
+                        <div class="row m-0 pd-5"><span class="spn-1 w-100"><input type="text" formControlName="workphone" class="form-control ht" /></span></div>
+                        <div class="row m-0 pd-5"><span class="spn-1 w-100"><input type="text" formControlName="workphone" class="form-control ht" /></span></div>
+                        <div class="row m-0 pd-5"><span class="spn-1 w-100"><input type="text" formControlName="workemail" class="form-control ht" /></span></div>
+                        <div class="row m-0 pd-5"><span class="spn-1 w-100"><input type="text" formControlName="worklocation" class="form-control ht" /></span></div>
+                        <div class="row m-0 pd-5"><span class="spn-1 w-100"><input type="text" formControlName="company" class="form-control ht" /></span></div>
+                        
+                    </div>
+                    <div class="col-md-2 pd-0 br-r">
+                        <div class="row m-0 pd-10"><span class="spn-1">Department</span></div>
+                        <div class="row m-0 pd-10"><span class="spn-1">Job Position</span></div>
+                        <div class="row m-0 pd-10"><span class="spn-1">Manager</span></div>
+                    </div>
+                    <div class="col-md-4 pd-0">
+                        <div class="row m-0 pd-5"><span class="spn-1 w-100"><input type="text" formControlName="department" class="form-control ht" /></span></div>
+                        <div class="row m-0 pd-5"><span class="spn-1 w-100"><input type="text" formControlName="jobposition" class="form-control ht" /></span></div>
+                        <div class="row m-0 pd-5"><span class="spn-1 w-100"><input type="text" formControlName="manager" class="form-control ht" /></span></div>
+                    </div>
+                    
+                </div>
+
+                <div class="row m-0 f-f">
+                    <div class="col-md-9 pd-0">
+                         <div class="row m-0 ta-c">
+                              <div class="col-md-3 pd-5 b-bg-b cursor" [ngClass]="{activeclass: isActive(1)}" (click)='active(1)'> Work Information </div>
+                              <div class="col-md-3 pd-5 b-bg-b cursor" [ngClass]="{activeclass: isActive(2)}" (click)='active(2)'> General Information </div>
+                              <div class="col-md-3 pd-5 b-bg-b cursor" [ngClass]="{activeclass: isActive(3)}" (click)='active(3)'> HR Settings </div>
+                              <div class="col-md-3 pd-5 b-bg-b cursor">  </div>
+                         </div>
+                    </div>
+                    <div class="col-md-3 pd-0 b-bg-b">
+
+                    </div>
+              </div>
+
+                
+
+                <div class="row m-0 mt-15 f-f" *ngIf="selected==1">
+                    <div class="col-md-2 pd-0 br-r">
+                        <div class="row m-0 pd-5"><span class="spn-1">Location <br>Work Address</span></div>
+                        <div class="row m-0 pd-5"><span class="spn-1">Responsibles<br>Coach</span></div>
+                    </div>
+                    <div class="col-md-4 pd-0">
+                        <div class="row m-0 pd-5"><span class="spn-1 w-100"><input type="text" formControlName="workphone" class="form-control ht" /></span></div>
+                        <div class="row m-0 pd-5"><span class="spn-1 w-100"><input type="text" formControlName="workphone" class="form-control ht" /></span></div>
+                    </div>
+                    <div class="col-md-3 pd-0 br-r">
+                        <!-- <div class="row m-0"><span class="spn-1">Sales Price</span></div>
+                        <div class="row m-0"><span class="spn-1">Customer Taxes</span></div>
+                        <div class="row m-0"><span class="spn-1">Cost</span></div>
+                        <div class="row m-0"><span class="spn-1">Company</span></div> -->
+                    </div>
+                    <div class="col-md-3 pd-0">
+                        <!-- <div class="row m-0"><span class="spn-1">9.50$</span></div>
+                        <div class="row m-0"><span class="spn-1">2.25$</span></div>
+                        <div class="row m-0"><span class="spn-1">2.00$ Updated Cost</span></div>
+                        <div class="row m-0"><span class="spn-1">Infosys</span></div> -->
+                    </div>
+                </div>
+
+            </form>
+
+                <div class="row m-0 mt-15 f-f" *ngIf="selected==3">
+                    <div class="col-md-3 pd-0 br-r">
+                        <div class="row m-0"><span class="spn-1">Product Type</span></div>
+                        <div class="row m-0"><span class="spn-1">Product Category</span></div>
+                        <div class="row m-0"><span class="spn-1">Internal Reference</span></div>
+                        <div class="row m-0"><span class="spn-1">Bar Code</span></div>
+                        <div class="row m-0"><span class="spn-1">HSN/SAC code</span></div>
+                        <div class="row m-0"><span class="spn-1">HSN/SAC Description</span></div>
+                    </div>
+                    <div class="col-md-3 pd-0">
+                        <div class="row m-0"><span class="spn-1">Service</span></div>
+                        <div class="row m-0"><span class="spn-1">All</span></div>
+                    </div>
+                    <div class="col-md-3 pd-0 br-r">
+                        <div class="row m-0"><span class="spn-1">Sales Price</span></div>
+                        <div class="row m-0"><span class="spn-1">Customer Taxes</span></div>
+                        <div class="row m-0"><span class="spn-1">Cost</span></div>
+                        <div class="row m-0"><span class="spn-1">Company</span></div>
+                    </div>
+                    <div class="col-md-3 pd-0">
+                        <div class="row m-0"><span class="spn-1">4.50$</span></div>
+                        <div class="row m-0"><span class="spn-1"></span></div>
+                        <div class="row m-0"><span class="spn-1">2.00$ Updated Cost</span></div>
+                        <div class="row m-0"><span class="spn-1"></span>TechM</div>
+                    </div>
+                </div>
+
+                <div class="row m-0 mt-15 f-f" *ngIf="selected==4">
+                    <div class="col-md-3 pd-0 br-r">
+                        <div class="row m-0"><span class="spn-1">Product Type</span></div>
+                        <div class="row m-0"><span class="spn-1">Product Category</span></div>
+                        <div class="row m-0"><span class="spn-1">Internal Reference</span></div>
+                        <div class="row m-0"><span class="spn-1">Bar Code</span></div>
+                        <div class="row m-0"><span class="spn-1">HSN/SAC code</span></div>
+                        <div class="row m-0"><span class="spn-1">HSN/SAC Description</span></div>
+                    </div>
+                    <div class="col-md-3 pd-0">
+                        <div class="row m-0"><span class="spn-1">Service</span></div>
+                        <div class="row m-0"><span class="spn-1">All</span></div>
+                    </div>
+                    <div class="col-md-3 pd-0 br-r">
+                        <div class="row m-0"><span class="spn-1">Sales Price</span></div>
+                        <div class="row m-0"><span class="spn-1">Customer Taxes</span></div>
+                        <div class="row m-0"><span class="spn-1">Cost</span></div>
+                        <div class="row m-0"><span class="spn-1">Company</span></div>
+                    </div>
+                    <div class="col-md-3 pd-0">
+                        <div class="row m-0"><span class="spn-1">8.50$</span></div>
+                        <div class="row m-0"><span class="spn-1">3.25$</span></div>
+                        <div class="row m-0"><span class="spn-1">4.00$ Updated Cost</span></div>
+                        <div class="row m-0"><span class="spn-1">Accenture</span></div>
+                    </div>
+                </div>
+
+            </nb-card-body>
+        </nb-card>
+    </div>
+
+    <ng-template #dialog let-data let-ref="dialogRef">
+        <nb-card>
+          <nb-card-header>Warning</nb-card-header>
+          <nb-card-body>{{ data }}</nb-card-body>
+          <nb-card-footer>
+            <span class="txt-1 cursor" (click)="ref.close()">Ok</span>
+            <span class="txt-1 cursor m-l-2" (click)="ref.close()">Cancel</span>
+          </nb-card-footer>
+        </nb-card>
+      </ng-template>
+</div>

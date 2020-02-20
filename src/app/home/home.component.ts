@@ -45,7 +45,7 @@ export class HomeComponent implements OnInit {
         {
           icon: 'eye-outline',
           title: 'Overview',
-          link: [], // goes into angular `routerLink`                         
+          link: ['/product-overview'], // goes into angular `routerLink`                         
         },
         {
           icon: 'link-2-outline',

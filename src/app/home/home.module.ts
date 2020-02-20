@@ -6,15 +6,18 @@ import { ProductsComponent } from './products/products.component';
 import { NbThemeModule, NbSidebarModule, NbLayoutModule, NbButtonModule, NbTabsetModule, NbCardModule, NbInputModule, NbMenuModule, NbSearchModule, NbIconModule, NbContextMenuModule, NbSelectModule, NbTreeGridModule, NbFilterDirective, NbCalendarRangeModule, NbDatepickerModule } from '@nebular/theme';
 import { StockComponent } from './stock/stock.component';import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { OrderComponent } from './order/order.component';
-import { ReactiveFormsModule,FormsModule } from '@angular/forms';
-import { Ng2SmartTableModule } from 'ng2-smart-table';
+import { ProductOverviewComponent } from './products/product-overview/product-overview.component';import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProductDetailsComponent } from './products/product-details/product-details.component';
+import { ProductEditComponent } from './products/product-edit/product-edit.component';
+import { UserOverviewComponent } from './products/user-overview/user-overview.component';
+import { RouterModule } from '@angular/router';
+import { UserEditComponent } from './products/user-edit/user-edit.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 // import { NgTableComponent, NgTableFilteringDirective, NgTablePagingDirective, NgTableSortingDirective } from 'ng2-table';
-
-
+import { Ng2SmartTableModule } from 'ng2-smart-table';
 @NgModule({
-  declarations: [DashboardComponent, SettingsComponent, ProductsComponent, StockComponent, OrderComponent],
+  declarations: [DashboardComponent, SettingsComponent, ProductsComponent, StockComponent, OrderComponent, ProductOverviewComponent, ProductDetailsComponent, ProductEditComponent, UserOverviewComponent, UserEditComponent],
   imports: [
     CommonModule,
     NbThemeModule.forRoot({ name: 'default' }),
@@ -31,9 +34,9 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     NbEvaIconsModule,
     NbIconModule,
     NbSelectModule,
-    NbTreeGridModule,
+NbTreeGridModule,
     ReactiveFormsModule,
-    FormsModule,
+    FormsModule,RouterModule,
     Ng2SmartTableModule,
     NgxPaginationModule,
     NbCalendarRangeModule,

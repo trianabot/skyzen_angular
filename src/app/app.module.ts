@@ -16,7 +16,7 @@ import { LoginGuard } from './guards/login.guard';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NbThemeModule, NbLayoutModule, NbButtonModule, NbSidebarModule, NbTabsetModule, NbInputModule, NbCardModule, NbListModule, NbMenuModule, NbSearchModule, NbContextMenuModule, NbIconModule, NbSelectModule, NbTreeGridModule, NbDialogModule, NbCalendarRangeModule, NbDatepickerModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './services/data.service';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
@@ -59,6 +59,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     NbSelectModule,
     NbTreeGridModule,
     NbDialogModule.forRoot(),
+    ReactiveFormsModul,
     Ng2SmartTableModule,
     NgxPaginationModule,
     NbCalendarRangeModule ,

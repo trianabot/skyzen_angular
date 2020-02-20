@@ -1,0 +1,198 @@
+<div class="container-fluid nopadrightleft">
+    <div class="row m-0">
+       <nb-card class="nb-top">
+           <nb-card-body>
+               <div class="row m-0 f-f">
+                   <div class="col-md-6 pd-10">
+                       <div class="row fs-25 pd-5">
+                            <span>{{paramdata?.Name}}</span>
+                       </div>
+                       <div class="row pd-5">
+                           <span class="txt-1 cursor" (click)="editproduct()">Edit</span>
+                           <span class="txt-1 cursor m-l-2">Create</span>
+                       </div>
+                   </div>
+               </div>
+           </nb-card-body>
+       </nb-card>
+    </div>
+    
+    <div class="row m-0 w-90">
+        <nb-card class="nb-top mt-10 m-l-13">
+            <nb-card-body class="pd-00">
+                <div class="row m-0 b-bg f-f">
+                     <div class="col-md-2 pd-0">
+
+                     </div>
+                     <div class="col-md-2 pd-0">
+
+                     </div>
+                     <div class="col-md-2 pd-0">
+
+                     </div>
+                     <div class="col-md-2 pd-0">
+
+                     </div>
+                     <div class="col-md-2 pd-0 w-12 ta-c b-c">
+                          <div class="row m-0">
+                               <!-- <div class="col-md-3 pd-0"><i class="fa fa-signal" aria-hidden="true"></i></div> -->
+                               <div class="col-md-12 pd-0">
+                                <i class="fa fa-signal icon" aria-hidden="true"></i>
+                                    <span>0.00 Units</span><br>
+                                    <span>Sold</span>
+                               </div>
+                          </div>
+                     </div>
+                     <div class="col-md-2 pd-0 w-12 ta-c b-c">
+                        <div class="row m-0">
+                            <div class="col-md-12 pd-0">
+                                <i class="fa fa-signal icon" aria-hidden="true"></i>
+                                    <span>0.00 Units</span><br>
+                                    <span>Sold</span>
+                               </div>
+                       </div>
+                     </div>
+                </div>
+
+                <div class="row m-0 f-f">
+                     <div class="col-md-12 mt-15 fs-25">
+                         <span>{{paramdata?.Name}}</span>
+                     </div>
+                     <div class="col-md-12 pd-15">
+                         <span><input type="checkbox" id="sold" name="sold" value="sold"><label for="sold"> Can be Sold</label></span><br>
+                         <span><input type="checkbox" id="purchase" name="purchase" value="purchase"><label for="sold"> Can be Purchased</label></span>
+                     </div>
+                </div>
+
+                <div class="row m-0 f-f">
+                      <div class="col-md-9 pd-0">
+                           <div class="row m-0 ta-c">
+                                <div class="col-md-3 pd-5 b-bg-b cursor" [ngClass]="{activeclass: isActive(1)}" (click)='active(1)'> General Information </div>
+                                <div class="col-md-3 pd-5 b-bg-b cursor" [ngClass]="{activeclass: isActive(2)}" (click)='active(2)'> Variants </div>
+                                <div class="col-md-3 pd-5 b-bg-b cursor" [ngClass]="{activeclass: isActive(3)}" (click)='active(3)'> Sales </div>
+                                <div class="col-md-3 pd-5 b-bg-b cursor" [ngClass]="{activeclass: isActive(4)}" (click)='active(4)'> Purchase </div>
+                           </div>
+                      </div>
+                      <div class="col-md-3 pd-0 b-bg-b">
+
+                      </div>
+                </div>
+
+                <div class="row m-0 mt-15 f-f" *ngIf="selected==1">
+                    <div class="col-md-3 pd-0 br-r">
+                        <div class="row m-0"><span class="spn-1">Product Type</span></div>
+                        <div class="row m-0"><span class="spn-1">Product Category</span></div>
+                        <div class="row m-0"><span class="spn-1">Internal Reference</span></div>
+                        <div class="row m-0"><span class="spn-1">Bar Code</span></div>
+                        <div class="row m-0"><span class="spn-1">HSN/SAC code</span></div>
+                        <div class="row m-0"><span class="spn-1">HSN/SAC Description</span></div>
+                    </div>
+                    <div class="col-md-3 pd-0">
+                        <div class="row m-0"><span class="spn-1">{{paramdata?.Name}}</span></div>
+                        <div class="row m-0"><span class="spn-1">{{paramdata?.category_one?.Name}}</span></div>
+                    </div>
+                    <div class="col-md-3 pd-0 br-r">
+                        <div class="row m-0"><span class="spn-1">Sales Price</span></div>
+                        <div class="row m-0"><span class="spn-1">Customer Taxes</span></div>
+                        <div class="row m-0"><span class="spn-1">Cost</span></div>
+                        <div class="row m-0"><span class="spn-1">Company</span></div>
+                    </div>
+                    <div class="col-md-3 pd-0">
+                        <div class="row m-0"><span class="spn-1">{{paramdata?.CostOne}}{{paramdata?.Currency}}</span></div>
+                        <div class="row m-0"><span class="spn-1">&nbsp;</span></div>
+                        <div class="row m-0"><span class="spn-1">2.00$ Updated Cost</span></div>
+                        <div class="row m-0"><span class="spn-1">{{paramdata?.brands?.Brandname}}</span></div>
+                    </div>
+                </div>
+
+                <div class="row m-0 mt-15 f-f" *ngIf="selected==2">
+                    <div class="col-md-3 pd-0 br-r">
+                        <div class="row m-0"><span class="spn-1">Product Type</span></div>
+                        <div class="row m-0"><span class="spn-1">Product Category</span></div>
+                        <div class="row m-0"><span class="spn-1">Internal Reference</span></div>
+                        <div class="row m-0"><span class="spn-1">Bar Code</span></div>
+                        <div class="row m-0"><span class="spn-1">HSN/SAC code</span></div>
+                        <div class="row m-0"><span class="spn-1">HSN/SAC Description</span></div>
+                    </div>
+                    <div class="col-md-3 pd-0">
+                        <div class="row m-0"><span class="spn-1">Service</span></div>
+                        <div class="row m-0"><span class="spn-1">All</span></div>
+                        <div class="row m-0"><span class="spn-1">Product</span></div>
+                    </div>
+                    <div class="col-md-3 pd-0 br-r">
+                        <div class="row m-0"><span class="spn-1">Sales Price</span></div>
+                        <div class="row m-0"><span class="spn-1">Customer Taxes</span></div>
+                        <div class="row m-0"><span class="spn-1">Cost</span></div>
+                        <div class="row m-0"><span class="spn-1">Company</span></div>
+                    </div>
+                    <div class="col-md-3 pd-0">
+                        <div class="row m-0"><span class="spn-1">9.50$</span></div>
+                        <div class="row m-0"><span class="spn-1">2.25$</span></div>
+                        <div class="row m-0"><span class="spn-1">2.00$ Updated Cost</span></div>
+                        <div class="row m-0"><span class="spn-1">Infosys</span></div>
+                    </div>
+                </div>
+
+                <div class="row m-0 mt-15 f-f" *ngIf="selected==3">
+                    <div class="col-md-3 pd-0 br-r">
+                        <div class="row m-0"><span class="spn-1">Product Type</span></div>
+                        <div class="row m-0"><span class="spn-1">Product Category</span></div>
+                        <div class="row m-0"><span class="spn-1">Internal Reference</span></div>
+                        <div class="row m-0"><span class="spn-1">Bar Code</span></div>
+                        <div class="row m-0"><span class="spn-1">HSN/SAC code</span></div>
+                        <div class="row m-0"><span class="spn-1">HSN/SAC Description</span></div>
+                    </div>
+                    <div class="col-md-3 pd-0">
+                        <div class="row m-0"><span class="spn-1">Service</span></div>
+                        <div class="row m-0"><span class="spn-1">All</span></div>
+                    </div>
+                    <div class="col-md-3 pd-0 br-r">
+                        <div class="row m-0"><span class="spn-1">Sales Price</span></div>
+                        <div class="row m-0"><span class="spn-1">Customer Taxes</span></div>
+                        <div class="row m-0"><span class="spn-1">Cost</span></div>
+                        <div class="row m-0"><span class="spn-1">Company</span></div>
+                    </div>
+                    <div class="col-md-3 pd-0">
+                        <div class="row m-0"><span class="spn-1">4.50$</span></div>
+                        <div class="row m-0"><span class="spn-1"></span></div>
+                        <div class="row m-0"><span class="spn-1">2.00$ Updated Cost</span></div>
+                        <div class="row m-0"><span class="spn-1"></span>TechM</div>
+                    </div>
+                </div>
+
+                <div class="row m-0 mt-15 f-f" *ngIf="selected==4">
+                    <div class="col-md-3 pd-0 br-r">
+                        <div class="row m-0"><span class="spn-1">Product Type</span></div>
+                        <div class="row m-0"><span class="spn-1">Product Category</span></div>
+                        <div class="row m-0"><span class="spn-1">Internal Reference</span></div>
+                        <div class="row m-0"><span class="spn-1">Bar Code</span></div>
+                        <div class="row m-0"><span class="spn-1">HSN/SAC code</span></div>
+                        <div class="row m-0"><span class="spn-1">HSN/SAC Description</span></div>
+                    </div>
+                    <div class="col-md-3 pd-0">
+                        <div class="row m-0"><span class="spn-1">Service</span></div>
+                        <div class="row m-0"><span class="spn-1">All</span></div>
+                    </div>
+                    <div class="col-md-3 pd-0 br-r">
+                        <div class="row m-0"><span class="spn-1">Sales Price</span></div>
+                        <div class="row m-0"><span class="spn-1">Customer Taxes</span></div>
+                        <div class="row m-0"><span class="spn-1">Cost</span></div>
+                        <div class="row m-0"><span class="spn-1">Company</span></div>
+                    </div>
+                    <div class="col-md-3 pd-0">
+                        <div class="row m-0"><span class="spn-1">8.50$</span></div>
+                        <div class="row m-0"><span class="spn-1">3.25$</span></div>
+                        <div class="row m-0"><span class="spn-1">4.00$ Updated Cost</span></div>
+                        <div class="row m-0"><span class="spn-1">Accenture</span></div>
+                    </div>
+                </div>
+
+                <div class="row m-0 mt-15 pd-15 f-f">
+                       <span>Internal Notes</span>
+                </div>
+
+            </nb-card-body>
+        </nb-card>
+    </div>
+
+</div>

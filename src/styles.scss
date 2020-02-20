@@ -265,3 +265,24 @@
 //   border-radius: 5px;
 //   color: #11b698;
 // }
+
+// }
+
+.nb-theme-default nb-layout .layout .layout-container .content .columns nb-layout-column {
+  padding: 2.25rem 0rem 0rem !important
+}
+.nb-theme-default nb-card-body {
+  -webkit-box-flex: 1;
+  flex: 1;
+  -ms-flex: 1 1 auto;
+  overflow: auto;
+  padding: 0rem 1rem !important;
+  position: relative;
+  scrollbar-face-color: #e4e9f2;
+  scrollbar-track-color: #f7f9fc;
+}
+
+.nb-theme-default nb-select .select-button {
+  min-width: 9rem !important;
+  cursor: pointer;
+}
