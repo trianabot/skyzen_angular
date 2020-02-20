@@ -59,7 +59,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     NbSelectModule,
     NbTreeGridModule,
     NbDialogModule.forRoot(),
-    ReactiveFormsModul,
+    ReactiveFormsModule,
     Ng2SmartTableModule,
     NgxPaginationModule,
     NbCalendarRangeModule ,
