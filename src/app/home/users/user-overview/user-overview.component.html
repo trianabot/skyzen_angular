@@ -54,42 +54,31 @@
            <thead>
              <tr>
                <th><abbr title="Product Name">S No</abbr></th>
-               <th><abbr title="Employee Name">Employee Name</abbr></th>
+               <th><abbr title="Employee Name">User Name</abbr></th>
+               <th><abbr title="Employee Name">First Name</abbr></th>
+               <th><abbr title="Employee Name">Last Name</abbr></th>
                <th><abbr title="Work Phone">Work Phone</abbr></th>
                <th><abbr title="Work Email">Work Email</abbr></th>
-               <th><abbr title="Company">Company</abbr></th>
-               <th><abbr title="Department">Department</abbr></th>
-               <th><abbr title="Job Position">Job Position</abbr></th>
-               <th><abbr title="Manager">Manager</abbr></th>
+               <th><abbr title="Company">Role</abbr></th>
+               <th><abbr title="Department">Town</abbr></th>
+               <th><abbr title="Job Position">State</abbr></th>
+               <th><abbr title="Manager">Country</abbr></th>
              </tr>
            </thead>
-           <!-- <tfoot>
-             <tr>
-               <th><abbr title="Position">Pos</abbr></th>
-               <th>Team</th>
-               <th><abbr title="Played">Pld</abbr></th>
-               <th><abbr title="Won">W</abbr></th>
-               <th><abbr title="Drawn">D</abbr></th>
-               <th><abbr title="Lost">L</abbr></th>
-               <th><abbr title="Goals for">GF</abbr></th>
-               <th><abbr title="Goals against">GA</abbr></th>
-               <th><abbr title="Goal difference">GD</abbr></th>
-               <th><abbr title="Points">Pts</abbr></th>
-               <th>Qualification or relegation</th>
-             </tr>
-           </tfoot> -->
            <tbody>
              <tr class="cursor" *ngFor="let item of productsListSearch; let i=index" (click)="useredit(item)">
                <td>{{i+1}}</td>
                <!-- <td>{{item.productname}}</td> -->
-               <td><a href="https://en.wikipedia.org/wiki/Leicester_City_F.C." title="Leicester City F.C.">{{item?.employeename}}</a> <strong></strong>
+               <td><a href="https://en.wikipedia.org/wiki/Leicester_City_F.C." title="Leicester City F.C.">{{item?.username}}</a> <strong></strong>
                </td>
-               <td>{{item?.workphone}}</td>
-               <td>{{item?.workemail}}</td>
-               <td>{{item?.company}}</td>
-               <td>{{item?.department}}</td>
-               <td>{{item?.jobposition}}</td>
-               <td>{{item?.manager}}</td>
+               <td>{{item?.Firstname}}</td>
+               <td>{{item?.Lastname}}</td>
+               <td>{{item?.Mobilenumber}}</td>
+               <td>{{item?.email}}</td>
+               <td>{{item?.role?.name}}</td>
+               <td>{{item?.City}}</td>
+               <td>{{item?.State}}</td>
+               <td>{{item?.Country}}</td>
                <!-- <td>36</td>
                <td>+32</td>
                <td>81</td>

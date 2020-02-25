@@ -9,8 +9,12 @@ import { OrderComponent } from './order/order.component';
 import { ProductOverviewComponent } from './products/product-overview/product-overview.component';
 import { ProductDetailsComponent } from './products/product-details/product-details.component';
 import { ProductEditComponent } from './products/product-edit/product-edit.component';
-import { UserOverviewComponent } from './products/user-overview/user-overview.component';
-import { UserEditComponent } from './products/user-edit/user-edit.component';
+import { UserOverviewComponent } from './users/user-overview/user-overview.component';
+import { UserEditComponent } from './users/user-edit/user-edit.component';
+import { SalesOverviewComponent } from './sales/sales-overview/sales-overview.component';
+import { SalesCustomerbalanceComponent } from './sales/sales-customerbalance/sales-customerbalance.component';
+import { SalesComponent } from './sales/sales.component';
+import { UserDetailsComponent } from './users/user-details/user-details.component';
 
 export const HomeRouters:Route[] = [
     {
@@ -47,6 +51,18 @@ export const HomeRouters:Route[] = [
             },
             {
                 path:'user-edit', component:UserEditComponent
+            },
+            {
+                path:'user-details', component:UserDetailsComponent
+            },
+            {
+                path:'sales', component:SalesComponent
+            },
+            {
+                path:'sales-overview', component:SalesOverviewComponent
+            },
+            {
+                path:'sales-customerbalance', component:SalesCustomerbalanceComponent
             }
         ]
     }

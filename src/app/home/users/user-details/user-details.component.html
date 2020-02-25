@@ -7,13 +7,13 @@
                        <div class="row fs-25 pd-5">
                             <span>Employees / New</span>
                        </div>
-                       <div class="row pd-5 bb">
-                           <span class="txt-1 cursor" (click)="save()">Save</span>
-                           <span class="txt-1 cursor m-l-2" (click)="open(dialog)">Discard</span>
-                       </div>
                        <div class="row pd-5">
-                           <span class="txt-2 cursor pd-3">Launch Plan</span>
+                           <span class="txt-1 cursor" (click)="edit()">Edit</span>
+                           <span class="txt-1 cursor m-l-2" (click)="cancel(dialog)">Cancel</span>
                        </div>
+                       <!-- <div class="row pd-5">
+                           <span class="txt-2 cursor pd-3">Launch Plan</span>
+                       </div> -->
                    </div>
                </div>
            </nb-card-body>
@@ -55,15 +55,14 @@
                      </div>
                 </div>
 
-                <form [formGroup]="useredit">
                 <div class="row m-0 f-f">
                     <div class="col-md-8 mt-15 fs-25">
-                        <span><input type="text" formControlName="employeename" class="form-control ht" /></span>
+                        <span>{{paramdata?.username}}</span>
                     </div>
                 </div>
                 <div class="row m-0 f-f">
                     <div class="col-md-8 mt-15 fs-25">
-                        <span><input type="text" formControlName="jobposition" class="form-control ht" /></span>
+                        <span>{{paramdata?.role?.name}}</span>
                     </div>
                 </div>
 
@@ -84,34 +83,36 @@
                 <div class="row m-0 mt-15 f-f">
                     
                     <div class="col-md-2 pd-0 br-r">
+                        <div class="row m-0 pd-10"><span class="spn-1">User Name</span></div>
                         <div class="row m-0 pd-10"><span class="spn-1">Work Mobile</span></div>
                         <div class="row m-0 pd-10"><span class="spn-1">Work Phone</span></div>
                         <div class="row m-0 pd-10"><span class="spn-1">Work Email</span></div>
-                        <div class="row m-0 pd-10"><span class="spn-1">Work Location</span></div>
-                        <div class="row m-0 pd-10"><span class="spn-1">Company</span></div>
+                        <div class="row m-0 pd-10"><span class="spn-1">Town</span></div>
+                        <div class="row m-0 pd-10"><span class="spn-1">Address</span></div>
                     </div>
                     <div class="col-md-4 pd-0">
-                        <div class="row m-0 pd-5"><span class="spn-1 w-100"><input type="text" formControlName="workphone" class="form-control ht" /></span></div>
-                        <div class="row m-0 pd-5"><span class="spn-1 w-100"><input type="text" formControlName="workphone" class="form-control ht" /></span></div>
-                        <div class="row m-0 pd-5"><span class="spn-1 w-100"><input type="text" formControlName="workemail" class="form-control ht" /></span></div>
-                        <div class="row m-0 pd-5"><span class="spn-1 w-100"><input type="text" formControlName="worklocation" class="form-control ht" /></span></div>
-                        <div class="row m-0 pd-5"><span class="spn-1 w-100"><input type="text" formControlName="company" class="form-control ht" /></span></div>
+                        <div class="row m-0 pd-10"><span class="spn-1 w-100">{{paramdata?.username}}</span></div>
+                        <div class="row m-0 pd-10"><span class="spn-1 w-100">{{paramdata?.Mobilenumber}}</span></div>
+                        <div class="row m-0 pd-10"><span class="spn-1 w-100">{{(paramdata?.Phonenumber) ? (paramdata?.Phonenumber) : '- -'}}</span></div>
+                        <div class="row m-0 pd-10"><span class="spn-1 w-100">{{paramdata?.email}}</span></div>
+                        <div class="row m-0 pd-10"><span class="spn-1 w-100">{{paramdata?.City}}</span></div>
+                        <div class="row m-0 pd-10"><span class="spn-1 w-100">{{paramdata?.City}}, {{paramdata?.State}}, {{paramdata?.Country}}, {{paramdata?.Pincode}}</span></div>
                         
                     </div>
                     <div class="col-md-2 pd-0 br-r">
-                        <div class="row m-0 pd-10"><span class="spn-1">Department</span></div>
-                        <div class="row m-0 pd-10"><span class="spn-1">Job Position</span></div>
-                        <div class="row m-0 pd-10"><span class="spn-1">Manager</span></div>
+                        <div class="row m-0 pd-10"><span class="spn-1">Latitude</span></div>
+                        <div class="row m-0 pd-10"><span class="spn-1">Longitude</span></div>
+                        <div class="row m-0 pd-10"><span class="spn-1">Role</span></div>
                     </div>
                     <div class="col-md-4 pd-0">
-                        <div class="row m-0 pd-5"><span class="spn-1 w-100"><input type="text" formControlName="department" class="form-control ht" /></span></div>
-                        <div class="row m-0 pd-5"><span class="spn-1 w-100"><input type="text" formControlName="jobposition" class="form-control ht" /></span></div>
-                        <div class="row m-0 pd-5"><span class="spn-1 w-100"><input type="text" formControlName="manager" class="form-control ht" /></span></div>
+                        <div class="row m-0 pd-10"><span class="spn-1 w-100">{{paramdata?.Latitude}}</span></div>
+                        <div class="row m-0 pd-10"><span class="spn-1 w-100">{{paramdata?.Logintude}}</span></div>
+                        <div class="row m-0 pd-10"><span class="spn-1 w-100">{{paramdata?.role?.name}}</span></div>
                     </div>
                     
                 </div>
 
-                <div class="row m-0 f-f">
+                <!-- <div class="row m-0 f-f">
                     <div class="col-md-9 pd-0">
                          <div class="row m-0 ta-c">
                               <div class="col-md-3 pd-5 b-bg-b cursor" [ngClass]="{activeclass: isActive(1)}" (click)='active(1)'> Work Information </div>
@@ -123,7 +124,7 @@
                     <div class="col-md-3 pd-0 b-bg-b">
 
                     </div>
-              </div>
+              </div> -->
 
                 
 
@@ -133,8 +134,8 @@
                         <div class="row m-0 pd-5"><span class="spn-1">Responsibles<br>Coach</span></div>
                     </div>
                     <div class="col-md-4 pd-0">
-                        <div class="row m-0 pd-5"><span class="spn-1 w-100"><input type="text" formControlName="workphone" class="form-control ht" /></span></div>
-                        <div class="row m-0 pd-5"><span class="spn-1 w-100"><input type="text" formControlName="workphone" class="form-control ht" /></span></div>
+                        <div class="row m-0 pd-5"><span class="spn-1 w-100">{{paramdata?.Mobilenumber}}</span></div>
+                        <div class="row m-0 pd-5"><span class="spn-1 w-100"></span></div>
                     </div>
                     <div class="col-md-3 pd-0 br-r">
                         <!-- <div class="row m-0"><span class="spn-1">Sales Price</span></div>
@@ -150,7 +151,6 @@
                     </div>
                 </div>
 
-            </form>
 
                 <div class="row m-0 mt-15 f-f" *ngIf="selected==3">
                     <div class="col-md-3 pd-0 br-r">

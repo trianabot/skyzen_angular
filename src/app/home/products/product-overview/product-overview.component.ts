@@ -13,7 +13,7 @@ export class ProductOverviewComponent implements OnInit {
   productsList: any = [];
   productsListSearch: any = [];
 
-  url: any = 'http://15.206.93.48';
+  url: any = 'http://13.235.244.196';
 
   placeholderfilter: any = '../../../../assets/filter-icon-vector-21679622.jpg'
 
@@ -212,7 +212,7 @@ export class ProductOverviewComponent implements OnInit {
                       let results = [];
                        console.log(data);
                       this.productsListSearch.forEach(it => {
-                        if (it.Name.toLowerCase().includes(data)) {
+                        if (it.name.toLowerCase().includes(data)) {
                           results.push(it);
                         }
                       });
@@ -245,19 +245,43 @@ export class ProductOverviewComponent implements OnInit {
       this.productsList = data;
       this.productsListSearch = this.productsList;
       this.categories = this.productsListSearch.reduce((a,d) => {
-              if(a.indexOf(d['category_one']['Name'])===-1) {
-                a.push(d['category_one']['Name']);
+              if(a.indexOf(d['category']['cat_name'])===-1) {
+                a.push(d['category']['cat_name']);
               }
               return a;
       },[])
       this.productnames = this.productsListSearch.reduce((a,d) => {
-        if(a.indexOf(d['Name'])===-1) {
-          a.push(d['Name']);
+        if(a.indexOf(d['name'])===-1) {
+          a.push(d['name']);
         }
         return a;
 },[])
       // console.log(this.categories);
     });
+  }
+
+  productChange(event) {
+    //  console.log(event);
+     if(event!=''){
+      if(event=='All') {
+        // console.log(event);
+        // console.log(this.productsList);
+        this.productsListSearch = this.productsList;
+        return
+      }
+      let results = [];
+      //  console.log(items);
+      this.productsList.forEach(it => {
+        if (it.name.toUpperCase().includes(event)) {
+          results.push(it);
+        }
+      });
+      this.productsListSearch = results;
+    }
+    else{
+      this.productsListSearch = this.productsList;
+    }
+
   }
 
   categoryChange(event) {
@@ -272,7 +296,7 @@ export class ProductOverviewComponent implements OnInit {
         let results = [];
         //  console.log(items);
         this.productsList.forEach(it => {
-          if (it.category_one.Name.toUpperCase().includes(event)) {
+          if (it.category.cat_name.toUpperCase().includes(event)) {
             results.push(it);
           }
         });

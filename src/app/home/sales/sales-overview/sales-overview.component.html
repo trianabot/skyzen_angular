@@ -1,0 +1,219 @@
+<div class="container-fluid w-99 nopadrightleft">
+    <div class="row m-0">
+        <nb-card class="nb-top">
+            <nb-card-body>
+                <div class="row pd-5 m-0">
+                    <span>Billing Overview</span>
+                </div>
+
+                <div class="row pd-5 m-0">
+                    <div class="col-md-2 pd-0">
+                        <div class="row m-0">
+                            <div class="col-md-12 pd-0">
+                                <span>From Date - To Date</span>
+                            </div>
+                            <div class="col-md-12 pd-0">
+                                <input nbInput placeholder="From To Date" [nbDatepicker]="rangepicker" class="">
+                                <nb-rangepicker #rangepicker (rangeChange)="handleRangeChange($event)"></nb-rangepicker>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 pd-0">
+                        <div class="row m-0">
+                            <div class="col-md-12 pd-0">
+                                <span>Select City</span>
+                            </div>
+                            <div class="col-md-12 pd-0">
+                                <nb-select class="" placeholder="party Name" [(selected)]="selected"
+                                    (selectedChange)="onSelectParty($event)">
+                                    <nb-option *ngFor="let obj of userData"
+                                        value="{{obj.generatedToUser.userdeptName}}">
+                                        {{obj.generatedToUser.userdeptName}}</nb-option>
+                                </nb-select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 pd-0">
+                        <div class="row m-0">
+                            <div class="col-md-12 pd-0">
+                                <span>Select Distributor</span>
+                            </div>
+                            <div class="col-md-12 pd-0">
+                                <nb-select class="" placeholder="party Name" [(selected)]="selected"
+                                    (selectedChange)="onSelectParty($event)">
+                                    <nb-option *ngFor="let obj of userData"
+                                        value="{{obj.generatedToUser.userdeptName}}">
+                                        {{obj.generatedToUser.userdeptName}}</nb-option>
+                                </nb-select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 pd-0">
+                        <div class="row m-0">
+                            <div class="col-md-12 pd-0">
+                                <span>Select Dealer</span>
+                            </div>
+                            <div class="col-md-12 pd-0">
+                                <nb-select class="" placeholder="party Name" [(selected)]="selected"
+                                    (selectedChange)="onSelectParty($event)">
+                                    <nb-option *ngFor="let obj of userData"
+                                        value="{{obj.generatedToUser.userdeptName}}">
+                                        {{obj.generatedToUser.userdeptName}}</nb-option>
+                                </nb-select>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row m-0 m-t-10">
+                    <div class="col-md-2 pd-0">
+                        <div class="a-r">
+                            <nb-card>
+                                <nb-card-body class="">
+                                    <div class="row m-0">
+                                        <div class="col-md-12 pd-9">
+                                            <span>Total Bill Amount</span>
+                                        </div>
+                                        <div class="col-md-12 pd-40 ta-c fs-50">
+                                            <span>50</span>
+                                        </div>
+                                    </div>
+                                </nb-card-body>
+                            </nb-card>
+                        </div>
+                    </div>
+                    <div class="col-md-2 pd-0">
+                        <div class="a-r">
+                            <nb-card>
+                                <nb-card-body class="">
+                                    <div class="row m-0">
+                                        <div class="col-md-12 pd-9">
+                                            <span>Pending Bill amount</span>
+                                        </div>
+                                        <div class="col-md-12 pd-40 ta-c fs-50">
+                                            <span>50</span>
+                                        </div>
+                                    </div>
+                                </nb-card-body>
+                            </nb-card>
+                        </div>
+                    </div>
+                    <div class="col-md-2 pd-0">
+                        <div class="a-r">
+                            <nb-card>
+                                <nb-card-body class="">
+                                    <div class="row m-0">
+                                        <div class="col-md-12 pd-9">
+                                            <span>Overdue Bill amount</span>
+                                        </div>
+                                        <div class="col-md-12 pd-40 ta-c fs-50">
+                                            <span>50</span>
+                                        </div>
+                                    </div>
+                                </nb-card-body>
+                            </nb-card>
+                        </div>
+                    </div>
+                    <div class="col-md-2 pd-0">
+                        <div class="a-r">
+                            <nb-card>
+                                <nb-card-body class="">
+                                    <div class="row m-0">
+                                        <div class="col-md-12 pd-9">
+                                            <span>Uncleared Check Amounts</span>
+                                        </div>
+                                        <div class="col-md-12 pd-40 ta-c fs-50">
+                                            <span>50</span>
+                                        </div>
+                                    </div>
+                                </nb-card-body>
+                            </nb-card>
+                        </div>
+                    </div>
+                    <div class="col-md-2 pd-0">
+                        <div class="a-r">
+                            <nb-card>
+                                <nb-card-body class="">
+                                    <div class="row m-0">
+                                        <div class="col-md-12 pd-9">
+                                            <span>Intransit Check Amounts</span>
+                                        </div>
+                                        <div class="col-md-12 pd-40 ta-c fs-50">
+                                            <span>50</span>
+                                        </div>
+                                    </div>
+                                </nb-card-body>
+                            </nb-card>
+                        </div>
+                    </div>
+                    <div class="col-md-2 pd-0">
+                        <div class="a-r">
+                            <nb-card>
+                                <nb-card-body class="">
+                                    <div class="row m-0">
+                                        <div class="col-md-12 pd-9">
+                                            <span>RTGS Amount</span>
+                                        </div>
+                                        <div class="col-md-12 pd-40 ta-c fs-50">
+                                            <span>50</span>
+                                        </div>
+                                    </div>
+                                </nb-card-body>
+                            </nb-card>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row m-0 m-t-10">
+                      <div class="col-md-7 pd-0">
+                           <div class="a-r">
+                                <div class="row m-0">
+                                    <span>Net Amount Vs Pending Amount</span>
+                                </div>
+                                <div class="row m-0 chtpie pd-0" [chart]="napachart">
+
+                                </div>
+                           </div>
+                      </div>
+                      <div class="col-md-5 pd-0">
+                         <div class="a-r">
+                            <div class="row m-0">
+                                <span>Amount by Transaction Type</span>
+                              </div>
+                            <div class="row m-0">
+                                <div class="col-md-12 chtpie pd-0" [chart]="attchart">
+                      
+                                </div>
+                              </div>
+                         </div>
+                      </div>
+                </div>
+
+                <div class="row m-0 m-t-10">
+                    <div class="col-md-7 pd-0">
+                        <div class="row m-0">
+                            <span>Total Billing Amount</span>
+                        </div>
+                        <div class="row m-0">
+                            <div class="col-md-12 chtpie pd-0" [chart]="tbachart">
+                  
+                            </div>
+                          </div>
+                    </div>
+                    <div class="col-md-5 pd-0">
+                        <div class="row m-0">
+                            <span>Payment Ageling</span>
+                        </div>
+                        <div class="row m-0">
+                          <div class="col-md-12 chtpie pd-0" [chart]="paymentchart">
+                
+                          </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>

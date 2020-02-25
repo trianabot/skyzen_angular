@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-user-overview',
@@ -8,11 +9,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./user-overview.component.scss']
 })
 export class UserOverviewComponent implements OnInit {
-  productsList: { employeename: string; workphone: string; workemail: string; company: string; department: string; jobposition: string; manager: string; }[];
+  // productsList: { employeename: string; workphone: string; workemail: string; company: string; department: string; jobposition: string; manager: string; }[];
   searchword: FormControl = new FormControl();
-  productsListSearch: { employeename: string; workphone: string; workemail: string; company: string; department: string; jobposition: string; manager: string; }[];
-  
-  constructor(private router: Router) { }
+  // productsListSearch: { employeename: string; workphone: string; workemail: string; company: string; department: string; jobposition: string; manager: string; }[];
+  productsList: any = [];
+  productsListSearch: any = [];
+  constructor(private router: Router, private auth: AuthService) { }
 
   ngOnInit() {
     this.productsList = [
@@ -189,11 +191,19 @@ export class UserOverviewComponent implements OnInit {
       }
     ];
     this.productsListSearch = this.productsList;
+    this.getusers();
   }
 
   useredit(item) {
     // console.log(item);
-    this.router.navigate(['/user-edit'], {queryParams: {item: JSON.stringify(item)}});
+    this.router.navigate(['/user-details'], {queryParams: {item: JSON.stringify(item)}});
+  }
+
+  getusers() {
+        this.auth.getUsers().subscribe(data => {
+            this.productsList = data;
+            this.productsListSearch = this.productsList;
+        });
   }
 
 }

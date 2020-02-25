@@ -5,7 +5,7 @@
                <div class="row m-0 f-f">
                    <div class="col-md-6 pd-10">
                        <div class="row fs-25 pd-5">
-                            <span>{{paramdata?.productname}}</span>
+                            <span>{{paramdata?.name}}</span>
                        </div>
                        <div class="row pd-5">
                            <span class="txt-1 cursor" (click)="save()">Save</span>
@@ -56,7 +56,7 @@
 
                 <div class="row m-0 f-f">
                      <div class="col-md-12 mt-15 fs-25">
-                         <span>{{paramdata?.productname}}</span>
+                         <span>{{paramdata?.name}}</span>
                      </div>
                      <div class="col-md-12 pd-15">
                          <span>Can be Sold</span><br>
@@ -83,30 +83,26 @@
                     <div class="col-md-3 pd-0 br-r">
                         <div class="row m-0 pd-10"><span class="spn-1">Product Type</span></div>
                         <div class="row m-0 pd-10"><span class="spn-1">Product Category</span></div>
-                        <div class="row m-0 pd-10"><span class="spn-1">Internal Reference</span></div>
-                        <div class="row m-0 pd-10"><span class="spn-1">Bar Code</span></div>
+                        <div class="row m-0 pd-10"><span class="spn-1">SRNO</span></div>
+                        <div class="row m-0 pd-10"><span class="spn-1">SKU</span></div>
                         <div class="row m-0 pd-10"><span class="spn-1">HSN/SAC code</span></div>
-                        <div class="row m-0 pd-10"><span class="spn-1">HSN/SAC Description</span></div>
+                        <div class="row m-0 pd-10"><span class="spn-1">Short Name</span></div>
                     </div>
                     <div class="col-md-3 pd-0">
-                        <div class="row m-0 pd-5"><span class="spn-1"><input type="text" formControlName="productType" class="form-control ht" /></span></div>
-                        <div class="row m-0 pd-5"><span class="spn-1"><input type="text" formControlName="productCategory" class="form-control ht" /></span></div>
-                        <div class="row m-0 pd-5"><span class="spn-1"><input type="text" formControlName="internalReference" class="form-control ht" /></span></div>
-                        <div class="row m-0 pd-5"><span class="spn-1"><input type="text" formControlName="barCode" class="form-control ht" /></span></div>
-                        <div class="row m-0 pd-5"><span class="spn-1"><input type="text" formControlName="HSNSACcode" class="form-control ht" /></span></div>
-                        <div class="row m-0 pd-5"><span class="spn-1"><input type="text" formControlName="HSNSACDescription" class="form-control ht" /></span></div>
+                        <div class="row m-0 pd-5"><span class="spn-1"><input type="text" formControlName="name" class="form-control ht" /></span></div>
+                        <div class="row m-0 pd-5"><span class="spn-1"><input type="text" formControlName="category" class="form-control ht" /></span></div>
+                        <div class="row m-0 pd-5"><span class="spn-1"><input type="text" formControlName="srno" class="form-control ht" /></span></div>
+                        <div class="row m-0 pd-5"><span class="spn-1"><input type="text" formControlName="sku" class="form-control ht" /></span></div>
+                        <div class="row m-0 pd-5"><span class="spn-1"><input type="text" formControlName="hsn_code" class="form-control ht" /></span></div>
+                        <div class="row m-0 pd-5"><span class="spn-1"><input type="text" formControlName="short_name" class="form-control ht" /></span></div>
                     </div>
                     <div class="col-md-3 pd-0 br-r">
-                        <div class="row m-0 pd-10"><span class="spn-1">Sales Price</span></div>
-                        <div class="row m-0 pd-10"><span class="spn-1">Customer Taxes</span></div>
+                        <div class="row m-0 pd-10"><span class="spn-1">Currency</span></div>
                         <div class="row m-0 pd-10"><span class="spn-1">Cost</span></div>
-                        <div class="row m-0 pd-10"><span class="spn-1">Company</span></div>
                     </div>
                     <div class="col-md-3 pd-0">
-                        <div class="row m-0 pd-5"><span class="spn-1"><input type="text" formControlName="salesPrice" class="form-control ht" /></span></div>
-                        <div class="row m-0 pd-5"><span class="spn-1"><input type="text" formControlName="customerTaxes" class="form-control ht" /></span></div>
+                        <div class="row m-0 pd-5"><span class="spn-1"><input type="text" formControlName="currency" class="form-control ht" /></span></div>
                         <div class="row m-0 pd-5"><span class="spn-1"><input type="text" formControlName="cost" class="form-control ht" /></span></div>
-                        <div class="row m-0 pd-5"><span class="spn-1"><input type="text" formControlName="company" class="form-control ht" /></span></div>
                     </div>
                     
                 </div>

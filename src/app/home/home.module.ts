@@ -9,17 +9,23 @@ import { OrderComponent } from './order/order.component';
 import { ProductOverviewComponent } from './products/product-overview/product-overview.component';import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductDetailsComponent } from './products/product-details/product-details.component';
 import { ProductEditComponent } from './products/product-edit/product-edit.component';
-import { UserOverviewComponent } from './products/user-overview/user-overview.component';
+import { UserOverviewComponent } from './users/user-overview/user-overview.component';
 import { RouterModule } from '@angular/router';
-import { UserEditComponent } from './products/user-edit/user-edit.component';
+import { UserEditComponent } from './users/user-edit/user-edit.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 // import { NgTableComponent, NgTableFilteringDirective, NgTablePagingDirective, NgTableSortingDirective } from 'ng2-table';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
+import { SalesOverviewComponent } from './sales/sales-overview/sales-overview.component';
+import { SalesCustomerbalanceComponent } from './sales/sales-customerbalance/sales-customerbalance.component';
+import { SalesComponent } from './sales/sales.component';
+import { ChartModule,HIGHCHARTS_MODULES  } from 'angular-highcharts';
+import { UserDetailsComponent } from './users/user-details/user-details.component';
+
 @NgModule({
-  declarations: [DashboardComponent, SettingsComponent, ProductsComponent, StockComponent, OrderComponent, ProductOverviewComponent, ProductDetailsComponent, ProductEditComponent, UserOverviewComponent, UserEditComponent],
+  declarations: [DashboardComponent, SettingsComponent, ProductsComponent, StockComponent, OrderComponent, ProductOverviewComponent, ProductDetailsComponent, ProductEditComponent, UserOverviewComponent, UserEditComponent, SalesOverviewComponent, SalesCustomerbalanceComponent, SalesComponent, UserDetailsComponent],
   imports: [
-    CommonModule,
+    CommonModule,ChartModule,
     NbThemeModule.forRoot({ name: 'default' }),
     NbLayoutModule,
     NbSidebarModule.forRoot(), // NbSidebarModule.forRoot(), //if this is your app.module
@@ -47,7 +53,9 @@ NbTreeGridModule,
     // NgTablePagingDirective,
     // NgTableSortingDirective
   
-  ]
+  ],
+  providers: [{provide: HIGHCHARTS_MODULES,
+    useFactory: () => [ ]}],
 })
 export class HomeModule { 
   

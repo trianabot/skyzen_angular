@@ -5,7 +5,7 @@
                <div class="row m-0 f-f">
                    <div class="col-md-6 pd-10">
                        <div class="row fs-25 pd-5">
-                            <span>{{paramdata?.Name}}</span>
+                            <span>{{paramdata?.name}}</span>
                        </div>
                        <div class="row pd-5">
                            <span class="txt-1 cursor" (click)="editproduct()">Edit</span>
@@ -56,7 +56,7 @@
 
                 <div class="row m-0 f-f">
                      <div class="col-md-12 mt-15 fs-25">
-                         <span>{{paramdata?.Name}}</span>
+                         <span>{{paramdata?.name}}</span>
                      </div>
                      <div class="col-md-12 pd-15">
                          <span><input type="checkbox" id="sold" name="sold" value="sold"><label for="sold"> Can be Sold</label></span><br>
@@ -80,28 +80,28 @@
 
                 <div class="row m-0 mt-15 f-f" *ngIf="selected==1">
                     <div class="col-md-3 pd-0 br-r">
-                        <div class="row m-0"><span class="spn-1">Product Type</span></div>
-                        <div class="row m-0"><span class="spn-1">Product Category</span></div>
-                        <div class="row m-0"><span class="spn-1">Internal Reference</span></div>
-                        <div class="row m-0"><span class="spn-1">Bar Code</span></div>
-                        <div class="row m-0"><span class="spn-1">HSN/SAC code</span></div>
-                        <div class="row m-0"><span class="spn-1">HSN/SAC Description</span></div>
+                        <div class="row m-0 pd-10"><span class="spn-1">Product Type</span></div>
+                        <div class="row m-0 pd-10"><span class="spn-1">Product Category</span></div>
+                        <div class="row m-0 pd-10"><span class="spn-1">SRNO</span></div>
+                        <div class="row m-0 pd-10"><span class="spn-1">SKU</span></div>
+                        <div class="row m-0 pd-10"><span class="spn-1">HSN/SAC code</span></div>
+                        <div class="row m-0 pd-10"><span class="spn-1">Short Name</span></div>
                     </div>
                     <div class="col-md-3 pd-0">
-                        <div class="row m-0"><span class="spn-1">{{paramdata?.Name}}</span></div>
-                        <div class="row m-0"><span class="spn-1">{{paramdata?.category_one?.Name}}</span></div>
+                        <div class="row m-0 pd-10"><span class="spn-1">{{paramdata?.name}}</span></div>
+                        <div class="row m-0 pd-10"><span class="spn-1">{{paramdata?.category?.cat_name}}</span></div>
+                        <div class="row m-0 pd-10"><span class="spn-1">{{paramdata?.srno}}</span></div>
+                        <div class="row m-0 pd-10"><span class="spn-1">{{paramdata?.sku}}</span></div>
+                        <div class="row m-0 pd-10"><span class="spn-1">{{paramdata?.hsn_code}}</span></div>
+                        <div class="row m-0 pd-10"><span class="spn-1">{{paramdata?.short_name}}</span></div>
                     </div>
                     <div class="col-md-3 pd-0 br-r">
-                        <div class="row m-0"><span class="spn-1">Sales Price</span></div>
-                        <div class="row m-0"><span class="spn-1">Customer Taxes</span></div>
-                        <div class="row m-0"><span class="spn-1">Cost</span></div>
-                        <div class="row m-0"><span class="spn-1">Company</span></div>
+                        <div class="row m-0 pd-10"><span class="spn-1">Currency</span></div>
+                        <div class="row m-0 pd-10"><span class="spn-1">Cost</span></div>
                     </div>
                     <div class="col-md-3 pd-0">
-                        <div class="row m-0"><span class="spn-1">{{paramdata?.CostOne}}{{paramdata?.Currency}}</span></div>
-                        <div class="row m-0"><span class="spn-1">&nbsp;</span></div>
-                        <div class="row m-0"><span class="spn-1">2.00$ Updated Cost</span></div>
-                        <div class="row m-0"><span class="spn-1">{{paramdata?.brands?.Brandname}}</span></div>
+                        <div class="row m-0 pd-10"><span class="spn-1">{{paramdata?.currency}}</span></div>
+                        <div class="row m-0 pd-10"><span class="spn-1">{{paramdata?.cost}}</span></div>
                     </div>
                 </div>
 

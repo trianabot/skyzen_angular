@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import{ HttpClient, HttpHeaders} from '@angular/common/http';
 import { from } from 'rxjs';
+import { identifierModuleUrl } from '@angular/compiler';
 @Injectable({
   providedIn: 'root'
 })
@@ -25,17 +26,30 @@ export class AuthService {
 
   public productlogin() {
     var logininfo = {
-      "identifier":"billusatheesh001@gmail.com",
-	    "password":"Srirama@123"
+      "identifier":"juvvalasai@gmail.com",
+	    "password":"skyzen"
     }
-    return this.http.post('http://15.206.93.48/auth/local',logininfo);
+    return this.http.post('http://13.235.244.196/auth/local',logininfo);
   }
 
   getProducts() {
     let headers = new HttpHeaders({
-      "Authorization": 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTgxOTM5NTk4LCJleHAiOjE1ODQ1MzE1OTh9.eikAG1ikM2sqO1i-gjFTMu3xj7-9Dv6sad3LZQwwVV8'
+      "Authorization": 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTgyMjgzOTMwLCJleHAiOjE1ODQ4NzU5MzB9.zCvloh4XjqBV5N73wmb0AgFZLKeBxxRYHuyrS5Z7AS4'
     })
-    return this.http.get('http://15.206.93.48/products', {headers});
+    return this.http.get('http://13.235.244.196/items');
+  }
+s
+  updateProducts(data, id) {
+    return this.http.put('http://13.235.244.196/items' + '/' + id, data);
+  }
+
+  getUsers() {
+    return this.http.get('http://13.235.244.196/users');
+  }
+
+  updateUser(data, id) {
+    console.log(data);
+    return this.http.put('http://13.235.244.196/users' + '/' + id, data);
   }
   
   

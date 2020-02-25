@@ -1,0 +1,123 @@
+<div class="container-fluid w-99 nopadrightleft">
+    <div class="row m-0">
+       <nb-card class="nb-top">
+           <nb-card-body>
+               <div class="row pd-5 m-0">
+                   <span>Customer Balance</span>
+               </div>
+
+               <div class="row pd-5 m-0">
+                    <div class="col-md-2 pd-0">
+                        <div class="row m-0">
+                            <div class="col-md-12 pd-0">
+                                 <span>From Date</span>
+                            </div>
+                            <div class="col-md-12 pd-0">
+                                <input nbInput placeholder="From To Date" [nbDatepicker]="rangepicker" class="" >
+                                <nb-rangepicker #rangepicker (rangeChange)="handleRangeChange($event)"></nb-rangepicker>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 pd-0">
+                        <div class="row m-0">
+                            <div class="col-md-12 pd-0">
+                                 <span>Select Distributor</span>
+                            </div>
+                            <div class="col-md-12 pd-0">
+                                <nb-select class="" placeholder="party Name" [(selected)]="selected" (selectedChange)="onSelectParty($event)">
+                                    <nb-option *ngFor="let obj of userData" value="{{obj.generatedToUser.userdeptName}}">
+                                        {{obj.generatedToUser.userdeptName}}</nb-option>
+                                </nb-select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 pd-0">
+                        <div class="row m-0">
+                            <div class="col-md-12 pd-0">
+                                 <span>Select Dealer</span>
+                            </div>
+                            <div class="col-md-12 pd-0">
+                                <nb-select class="" placeholder="party Name" [(selected)]="selected" (selectedChange)="onSelectParty($event)">
+                                    <nb-option *ngFor="let obj of userData" value="{{obj.generatedToUser.userdeptName}}">
+                                        {{obj.generatedToUser.userdeptName}}</nb-option>
+                                </nb-select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 pd-0">
+                        <div class="row m-0">
+                            <div class="col-md-12 pd-0">
+                                 <span>&nbsp;</span>
+                            </div>
+                            <div class="col-md-12 pd-0">
+                                <button nbButton size="tiny" class="fs-15">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+               </div>
+
+               <div class="row m-0 m-t-10">
+                <table class="table table-bordered"
+                *ngIf="(userRole=='crm' || 'distributor' || 'retailer' || 'plant' || 'sales' || 'asp' || 'serviceengineer') && (userRole!='admin')">
+                <thead>
+                    <tr>
+                        <th class="fs">
+                            <nb-icon icon="shopping-cart-outline"></nb-icon>S No
+                        </th>
+                        <th class="fs">
+                            <nb-icon icon="person-done-outline"></nb-icon>Billing Date
+                        </th>
+                        <th class="fs">
+                            <nb-icon icon="pin-outline"></nb-icon>Invoice Number
+                        </th>
+                        <th class="fs">
+                            <nb-icon icon="calendar-outline"></nb-icon>Party Name
+                        </th>
+                        <th class="fs">
+                            <nb-icon icon="pricetags-outline"></nb-icon>Town
+                        </th>
+                        <th class="fs">
+                            <nb-icon icon="percent-outline"></nb-icon>Amount
+                        </th>
+                        <th class="fs">
+                            <nb-icon icon="award-outline"></nb-icon>Pending Amount
+                        </th>
+                        <th class="fs">
+                            <nb-icon icon="activity-outline"></nb-icon>Credit Period
+                        </th>
+                        <th class="fs">
+                            <nb-icon icon="activity-outline"></nb-icon>Due Date
+                        </th>
+                        <th class="fs">
+                            <nb-icon icon="activity-outline"></nb-icon>Aeigin
+                        </th>
+    
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let obj of customerbalance | filter:searchKey | paginate: { itemsPerPage: 10, currentPage: p }"
+                        (click)="selectedOrder(obj)" style="cursor: pointer;">
+                        <td (click)="open(dialog)" (click)="selectedOrder(obj)">{{obj.id}}</td>
+                        <td (click)="open(dialog)" (click)="selectedOrder(obj)">{{obj.billingdate}}</td>
+                        <td (click)="open(dialog)" (click)="selectedOrder(obj)">{{obj.invoicenumber}}</td>
+                        <td (click)="open(dialog)" (click)="selectedOrder(obj)">{{obj.partyname}}</td>
+                        <td (click)="open(dialog)" (click)="selectedOrder(obj)">{{obj.town}}</td>
+                        <td (click)="open(dialog)" (click)="selectedOrder(obj)">{{obj.amount}}</td>
+                        <td (click)="open(dialog)" (click)="selectedOrder(obj)">{{obj.pendingamount}}</td>
+                        <td (click)="open(dialog)" (click)="selectedOrder(obj)">{{obj.creditperiod}}</td>
+                        <td (click)="open(dialog)" (click)="selectedOrder(obj)">{{obj.duedate}}</td>
+                        <td (click)="open(dialog)" (click)="selectedOrder(obj)">{{obj.aeigin}}</td>
+                        <!-- <td>
+                            <p class="display" style="margin: 0px;">
+                                <nb-icon class="nb_custom" icon="radio-button-off-outline"></nb-icon>{{obj.aeigin}}
+                            </p>
+                        </td> -->
+                    </tr>
+                </tbody>
+                </table>
+               </div>
+           </nb-card-body>
+       </nb-card>
+    </div>
+
+</div>

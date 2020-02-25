@@ -37,6 +37,12 @@ export class HomeComponent implements OnInit {
 
   items = [
     {
+        title: 'Users',
+        expanded: false,
+        icon: "people-outline",
+        link:['/user-overview']
+    },
+    {
       
       title: 'products',
       expanded: false,
@@ -177,36 +183,48 @@ export class HomeComponent implements OnInit {
         }
       ],
     },
-    {
-      icon: 'person-done-outline',
-      title: 'Marketing',
-      link: [],
-    },
+    // {
+    //   icon: 'person-done-outline',
+    //   title: 'Marketing',
+    //   link: [],
+    // },
     {
       icon: 'bar-chart-2-outline',
       title: 'Sales',
       link: [],
+      children: [
+        {
+          icon: 'eye-outline',
+          title: 'Overview',
+          link: ['/sales-overview'], // goes into angular `routerLink`                         
+        },
+        {
+          icon: 'eye-outline',
+          title: 'Customer Balance',
+          link: ['/sales-customerbalance'], // goes into angular `routerLink`                         
+        }
+      ]
     },
-    {
-      icon: 'clipboard-outline',
-      title: 'Purchase',
-      link: [],
-    },
-    {
-      icon: 'alert-triangle-outline',
-      title: 'Finance',
-      link: [],
-    },
+    // {
+    //   icon: 'clipboard-outline',
+    //   title: 'Purchase',
+    //   link: [],
+    // },
+    // {
+    //   icon: 'alert-triangle-outline',
+    //   title: 'Finance',
+    //   link: [],
+    // },
     {
       icon: 'settings-2-outline',
       title: 'CRM',
       link: [],
     },
-    {
-      icon: 'settings-2-outline',
-      title: 'Buliding',
-      link: [],
-    },
+    // {
+    //   icon: 'settings-2-outline',
+    //   title: 'Buliding',
+    //   link: [],
+    // },
     {
       icon: 'people-outline',
       title: 'Employees',
@@ -214,12 +232,12 @@ export class HomeComponent implements OnInit {
     },
     {
       icon: 'cube-outline',
-      title: 'Expences',
+      title: 'Expenses',
       link: [],
     },
     {
       icon: 'settings-outline',
-      title: 'plant',
+      title: 'Plant',
       link: [],
     },
     {
