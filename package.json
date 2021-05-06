@@ -29,7 +29,7 @@
     "bootstrap": "^4.4.1",
     "eva-icons": "^1.1.2",
     "font-awesome": "^4.7.0",
-    "highcharts": "^8.0.0",
+    "highcharts": "^9.0.0",
     "jquery": "^3.4.1",
     "moment": "^2.24.0",
     "ng2-completer": "^3.0.3",
